@@ -1,0 +1,46 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.header {
+    max-width: 960px;
+    display: flex;
+    margin: 17px auto;
+    justify-content: space-between; 
+    flex-wrap: wrap;
+    align-items: center;    
+}
+
+.header-logo-image {
+    padding: 3px 0 7px 10px;    
+}
+
+.header-menu-list {
+    display: flex;  
+    column-gap: 40px; 
+    padding: 10px 20px;         
+    list-style-type: none;
+}
+
+.header-menu-item { 
+    text-transform: uppercase; 
+    font-family: "Oxygen";
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0.6px;
+    text-align: left;    
+}
+
+.header-menu-link {  
+    text-decoration: none;
+    font-weight: bold; 
+    color: black;
+    
+}
