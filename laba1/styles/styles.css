@@ -4,7 +4,9 @@
 }
 
 body {
+    color: #2E2E2E;
     margin: 0;
+    margin-inline: auto;
     padding: 0;
     box-sizing: border-box;
 }
@@ -41,6 +43,97 @@ body {
 .header-menu-link {  
     text-decoration: none;
     font-weight: bold; 
-    color: black;
+    color: #2E2E2E;    
     
+}
+
+.h1 {
+    max-width: 960;
+    padding-inline: 10px;
+    margin-top: 106px;    
+    margin-inline: auto;  
+    margin-bottom: 20px;  
+    font-family: "Lora";
+    font-size: 50px;
+    font-weight: 400;
+    line-height: 51px;
+    letter-spacing: 2px;
+    text-align: center;
+}
+
+.h2 { 
+    color: #2E2E2EA1;
+    max-width: 960;
+    padding-inline: 10px;     
+    margin-inline: auto;
+    margin-bottom: 113px;      
+    font-family: "Oxygen";
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0em;
+    text-align: center;       
+}
+
+.image {
+    max-width: 1440px;
+    margin-inline: auto;
+    margin-bottom: 140px;
+    overflow: hidden;
+}
+
+.text p {
+    color: #101315;
+    max-width: 960px;
+    margin-bottom: 135px;
+    margin-inline: auto;
+    font-family: "Oxygen";
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 35px;
+    letter-spacing: 0em;
+    text-align: left;
+    
+}
+
+.footer {      
+    margin-inline: auto;
+    max-width:1440px;
+    background-image: url(../images/footer.png);
+}
+
+.link-footer {
+    display: flex;
+    margin-inline: auto;
+    max-width: 960px;
+    justify-content: space-between; 
+    flex-wrap: wrap;
+    align-items: center;   
+}
+
+.footer-logo-image {
+    padding: 3px 0 5px 10px;
+    color: #ffffff;
+    font-family: "Lora";
+    font-size: 26px;
+    font-weight: 400;
+    line-height: 26px;
+    letter-spacing: 0em;
+    text-align: left;
+    text-decoration: none;
+}
+
+.footer .header-menu-link {
+    color: rgb(255 255 255 / 0.6);
+    font-family: "Oxygen";
+    font-size: 11px;
+    font-weight: 400;
+    line-height: 26px;
+    letter-spacing: 1px;
+    text-align: right;
+}
+
+.footer .header-menu-list {
+    column-gap: 20px;    
+    padding: 31px 10px 32px;
 }
