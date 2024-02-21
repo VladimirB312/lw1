@@ -83,17 +83,21 @@ body {
 }
 
 .text p {
-    color: #101315;
+      
+}
+
+.text {
+    margin-inline: auto;
     max-width: 960px;
     margin-bottom: 135px;
+    color: #101315;       
     margin-inline: auto;
     font-family: "Oxygen";
     font-size: 24px;
     font-weight: 400;
     line-height: 35px;
     letter-spacing: 0em;
-    text-align: left;
-    
+    text-align: left; 
 }
 
 .footer {      
