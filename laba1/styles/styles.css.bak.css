@@ -11,12 +11,8 @@ body {
     font-size: 0;
 }
 
-.container {
-    max-width: 960px;
-    margin: 0 auto;
-}
-
 .header {
+    max-width: 960px;
     display: flex;
     padding: 17px 0;
     justify-content: space-between;
@@ -29,7 +25,7 @@ body {
 
 .header-menu-list {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: wrap;     
     list-style-type: none;
 }
 
@@ -37,7 +33,7 @@ body {
     text-transform: uppercase;
     font: 400 12px/20px "Oxygen", sans-serif;
     letter-spacing: 0.6px;
-    text-align: left;
+    text-align: left;    
 }
 
 .header-menu-link {
@@ -49,31 +45,30 @@ body {
 }
 
 .main-title-block {
-    margin: 0 auto;
     padding: 89px 0 113px 0;
+    max-width: 960px;
+    text-align: center;
 }
 
-.main-title {
+.main-title-block-h1 {          
     padding-bottom: 20px;
     font: 400 50px/51px "Lora", sans-serif;
-    letter-spacing: 2px;
-    text-align: center;
+    letter-spacing: 2px;    
 }
 
-.main-subtitle {
-    color: #2E2E2EA1;
-    font: 400 17px/20px "Oxygen", sans-serif;
-    text-align: center;
+.main-title-block-h2 {
+    color: #2E2E2EA1;          
+    font: 400 17px/20px "Oxygen", sans-serif;      
 }
 
-.content-image {
+.image-block-picture {    
     width: 100%;
-    border-radius: 3px;
+    radius: 3px;
 }
 
 .content {
     margin-inline: auto;
-    background-color: #F7F7F7;
+    background-color: #F7F7F7;    
 }
 
 .text {
@@ -89,6 +84,8 @@ body {
 }
 
 .text {
+    margin-inline: auto;
+    max-width: 960px;
     color: #101315;
     margin-inline: auto;
     font: 400 24px/35px "Oxygen", sans-serif;
@@ -98,17 +95,18 @@ body {
 
 .footer {
     margin-inline: auto;
+    max-width: 1440px;
     background-image: url(../images/footer.png);
-    background-size: cover;
-    background-repeat: no-repeat;
 }
 
 .footer-background {
-    background-color: rgba(35, 47, 56, 0.6);
+    background-color: #232F3899
 }
 
 .footer-link {
     display: flex;
+    margin-inline: auto;
+    max-width: 960px;
     justify-content: space-between;
     align-items: center;
 }
@@ -126,13 +124,14 @@ body {
     font-weight: bold;
     color: rgb(255 255 255 / 0.6);
     font: 400 11px/26px "Oxygen", sans-serif;
-    letter-spacing: 1px;    
+    letter-spacing: 1px;
+    text-align: right;
     padding: 10px 20px;
 }
 
 .footer-menu-list {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: wrap;    
     list-style-type: none;    
     padding: 31px 10px 32px;
 }
@@ -140,5 +139,6 @@ body {
 .footer-menu-item {
     text-transform: uppercase;
     font: 400 12px/20px "Oxygen", sans-serif;
-    letter-spacing: 0.6px;    
+    letter-spacing: 0.6px;
+    text-align: left;
 }
