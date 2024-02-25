@@ -23,24 +23,24 @@ body {
     align-items: center;
 }
 
-.header-logo-image {
+.header__logo-image {
     padding: 3px 0 7px 10px;
 }
 
-.header-menu-list {
+.header__menu-list {
     display: flex;
     flex-wrap: wrap;
     list-style-type: none;
 }
 
-.header-menu-item {
+.header__menu-item {
     text-transform: uppercase;
     font: 400 12px/20px "Oxygen", sans-serif;
     letter-spacing: 0.6px;
     text-align: left;
 }
 
-.header-menu-link {
+.header__menu-link {
     padding: 10px 20px;
     text-decoration: none;
     font-weight: bold;
@@ -48,27 +48,22 @@ body {
 
 }
 
-.main-title-block {
+.title-block {
     margin: 0 auto;
     padding: 89px 0 113px 0;
 }
 
-.main-title {
+.title-block__title {
     padding-bottom: 20px;
     font: 400 50px/51px "Lora", sans-serif;
     letter-spacing: 2px;
     text-align: center;
 }
 
-.main-subtitle {
+.title-block__subtitle {
     color: #2E2E2EA1;
     font: 400 17px/20px "Oxygen", sans-serif;
     text-align: center;
-}
-
-.content-image {
-    width: 100%;
-    border-radius: 3px;
 }
 
 .content {
@@ -76,24 +71,27 @@ body {
     background-color: #F7F7F7;
 }
 
-.text {
+
+.content__image {
+    width: 100%;
+    border-radius: 3px;
+}
+
+.content__text {
     padding: 140px 0 135px;
-}
-
-.text p {
-    margin-bottom: 20px;
-}
-
-.text p:last-child {
-    margin-bottom: 0;
-}
-
-.text {
     color: #101315;
     margin-inline: auto;
     font: 400 24px/35px "Oxygen", sans-serif;
     letter-spacing: 0em;
     text-align: left;
+}
+
+.content__text p {
+    margin-bottom: 20px;
+}
+
+.content__text p:last-child {
+    margin-bottom: 0;
 }
 
 .footer {
@@ -103,17 +101,17 @@ body {
     background-repeat: no-repeat;
 }
 
-.footer-background {
+.footer__background {
     background-color: rgba(35, 47, 56, 0.6);
 }
 
-.footer-link {
+.footer__link {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.footer-logo-image {
+.footer__logo-image {
     padding: 3px 0 5px 10px;
     color: #ffffff;
     font: 400 26px/26px "Lora", sans-serif;
@@ -121,24 +119,24 @@ body {
     text-decoration: none;
 }
 
-.footer-menu-link {
+.footer__menu-link {
     text-decoration: none;
     font-weight: bold;
     color: rgb(255 255 255 / 0.6);
     font: 400 11px/26px "Oxygen", sans-serif;
-    letter-spacing: 1px;    
+    letter-spacing: 1px;
     padding: 10px 20px;
 }
 
-.footer-menu-list {
+.footer__menu-list {
     display: flex;
     flex-wrap: wrap;
-    list-style-type: none;    
+    list-style-type: none;
     padding: 31px 10px 32px;
 }
 
-.footer-menu-item {
+.footer__menu-item {
     text-transform: uppercase;
     font: 400 12px/20px "Oxygen", sans-serif;
-    letter-spacing: 0.6px;    
+    letter-spacing: 0.6px;
 }
