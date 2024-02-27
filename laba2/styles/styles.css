@@ -1,0 +1,340 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    color: #2E2E2E;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 0;
+}
+
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.header {
+    margin: 0 auto;
+    background-image: url(../images/header-background.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.header-nav {
+    display: flex;
+    padding: 17px 0;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-nav__logo {
+    text-decoration: none;
+    color: #fff;
+    padding: 3px 0 7px 10px;
+    font: 400 26px/26px "Lora", sans-serif;
+
+}
+
+.header-nav__menu-list {
+    display: flex;
+    flex-wrap: wrap;
+    list-style-type: none;
+}
+
+.header-nav__menu-link {
+    text-transform: uppercase;
+    font: 400 12px/20px "Oxygen", sans-serif;
+    color: #fff;
+    letter-spacing: 0.6px;
+    padding: 10px 20px;
+    text-decoration: none;
+
+}
+
+.header-title {
+    color: #fff;
+    margin: 0 auto;
+    padding: 89px 0 157px 0;
+}
+
+.header-title__text-title {
+    padding-bottom: 20px;
+    font: 400 50px/51px "Lora", sans-serif;
+    letter-spacing: 2px;
+    text-align: center;
+}
+
+.header-title__text-subtitle {
+    color: rgba(255, 255, 255, 0.63);
+    font: 400 17px/20px "Oxygen", sans-serif;
+    text-align: center;
+    padding-bottom: 31px;
+}
+
+.header-title__link-button {
+    display: flex;
+    margin: 0 auto;
+    justify-content: center;
+}
+
+.header-title__link-text {
+    padding: 12px 31px;
+    border-radius: 3px;
+    background-color: rgb(221, 120, 63);
+    font: 400 13px/20px "Oxygen", sans-serif;
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+}
+
+/* NAVIGATION BLOCK MENU */
+.navigation {
+    background-color: rgb(255, 255, 255);
+}
+
+.navigation-block {
+    padding-top: 9px;
+    padding-bottom: 10px;
+}
+
+
+.navigation-block__menu-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 13px;
+    padding-bottom: 13px;
+}
+
+.navigation-block__menu-item {}
+
+.navigation-block__menu-link {
+    color: rgb(118, 128, 136);
+    text-decoration: none;
+    padding: 13px 45px;
+    font: 400 14px/20px "Lora", sans-serif;
+    text-align: center;
+}
+
+/* MAIN BLOCK */
+.main-block {
+    background-color: rgb(247, 247, 247);
+
+}
+
+/* FEATURE POST */
+.featured-post {
+    padding-top: 60px;
+}
+
+.post-title {
+    max-width: 188px;
+    border-bottom: 1px solid rgb(222, 222, 222);
+    font: 400 20px/27px "Oxygen", sans-serif;
+    letter-spacing: 2px;
+    padding-bottom: 17px;
+    margin: 0 auto 16px;
+}
+
+.featured-post-card-block {    
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 7px 10px;
+}
+
+.card {    
+    background-color: grey;
+    width: 460px;
+    padding-bottom: 7px;
+    border-radius: 3px;
+}
+
+.featured-post-card-block__card_img1 {
+    background-image: url(../images/roadahead.jpg);
+    background-size: cover;
+
+}
+
+.featured-post-card-block__card_img2 {
+    background-image: url(../images/fromtop.jpg);
+    background-size: cover;
+    position: relative;
+}
+
+.card__sticker {
+    display: flex;
+    padding: 6px 9px 7px 9px;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    text-transform: uppercase;
+    background-color: rgb(221, 120, 63);
+    font: 400 12px/13px "Oxygen", sans-serif;
+    color: rgb(255, 255, 255);
+    border-radius: 2px;
+}
+
+.card__title {
+    padding-top: 157px;
+    padding-bottom: 6px;
+    padding-left: 20px;
+    color: rgb(255, 255, 255);
+    font: 400 27px/30px "Lora", sans-serif;
+}
+
+.card__subtitle {
+    padding-left: 20px;
+    padding-bottom: 12px;
+    color: rgba(255, 255, 255, 0.7);
+    font: 400 14px/25px "Oxygen", sans-serif;
+}
+
+.card__author-date {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px 15px;
+    align-items: center;
+}
+
+.card__photo-name {
+    display: flex;
+    align-items: center;
+}
+
+.card__photo {
+    width: 26px;
+    height: 26px;
+    border-radius: 60px;
+}
+
+.card__name {
+    padding-left: 10px;
+    color: rgba(255, 255, 255, 0.7);
+    font: 400 12px/35px "Oxygen", sans-serif;
+}
+
+.card__date-block {
+    display: flex;
+}
+
+.card__date {
+    color: rgba(255, 255, 255, 0.7);
+    font: 400 12px/35px "Oxygen", sans-serif;
+}
+
+/* MOST-RECENT */
+.most-recent {
+    padding-top: 60px;
+    padding-bottom: 89px;
+}
+
+.most-recent__card-block {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.recent-card {
+    padding: 6px 12px 19px;
+}
+
+.recent-card__image {}
+
+.recent-card__title-block {
+    height: 93px;
+    width: 296px;
+    background-color: rgb(252, 252, 252);
+    border-bottom: 1px solid rgb(239, 239, 239);
+}
+
+.recent-card__title {
+    padding: 14px 0 6px 13px;
+    font: 400 16px/21px "Lora", sans-serif;
+    color: rgb(16, 19, 21);
+}
+
+.recent-card__subtitle {
+    padding-left: 13px;
+    font: 400 13px/19px "Oxygen", sans-serif;
+    font-family: Oxygen;
+    color: rgb(122, 122, 122);
+}
+
+.recent-card__autor-date {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 7px 13px 6px;
+    background-color: rgb(252, 252, 252);
+}
+
+.recent-card__photo-name {
+    display: flex;
+    align-items: center;
+}
+
+.recent-card__photo {
+    width: 26px;
+    height: 26px;
+    border-radius: 60px;
+}
+
+.recent-card__name {
+    padding-left: 10px;
+    font: 400 11px/35px "Oxygen", sans-serif;
+    color: rgb(153, 153, 153);
+}
+
+.recent-card__date {
+    color: rgb(153, 153, 153);
+    font: 400 12px/35px "Oxygen", sans-serif;
+}
+
+/* FOOTER */
+.footer {
+    margin: 0 auto;
+    background-image: url(../images/footer.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.footer__background {
+    background-color: rgba(35, 47, 56, 0.6);
+}
+
+.footer__link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer__logo-image {
+    padding: 3px 0 5px 10px;
+    color: #ffffff;
+    font: 400 26px/26px "Lora", sans-serif;
+    text-align: left;
+    text-decoration: none;
+}
+
+.footer__menu-link {
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: bold;
+    color: rgb(255 255 255 / 0.6);
+    font: 400 12px/26px "Oxygen", sans-serif;
+    letter-spacing: 0.6px;
+    padding: 10px 20px;
+}
+
+.footer__menu-list {
+    display: flex;
+    flex-wrap: wrap;
+    list-style-type: none;
+    padding: 31px 10px 32px;
+}
