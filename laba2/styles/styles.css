@@ -20,15 +20,12 @@ body {
 /*HEADER*/
 .header {
     margin: 0 auto;
-    background-image: url(../images/header-background.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
+    background: url("../images/header-background.jpg") no-repeat center / cover;
 }
 
 .header-nav {
     display: flex;
-    padding: 17px 0;
+    padding: 17px 10px;
     justify-content: space-between;
     align-items: center;
 }
@@ -36,7 +33,7 @@ body {
 .header-nav__logo {
     text-decoration: none;
     color: #fff;
-    padding: 3px 0 7px 10px;
+    padding: 3px 0 11px 10px;
     font: 400 26px/26px "Lora", sans-serif;
 
 }
@@ -50,66 +47,64 @@ body {
 .header-nav__menu-link {
     text-transform: uppercase;
     font: 400 12px/20px "Oxygen", sans-serif;
-    color: #fff;
+    color: #ffffff;
     letter-spacing: 0.6px;
     padding: 10px 20px;
     text-decoration: none;
 
 }
 
-.header-title {
-    color: #fff;
+.banner {
+    color: #ffffff;
     margin: 0 auto;
     padding: 103px 0 157px 0;
 }
 
-.header-title__text-title {
+.banner__title {
     padding-bottom: 20px;
     font: 400 50px/51px "Lora", sans-serif;
     letter-spacing: 2px;
     text-align: center;
 }
 
-.header-title__text-subtitle {
+.banner__subtitle {
     color: rgba(255, 255, 255, 0.63);
     font: 400 17px/20px "Oxygen", sans-serif;
     text-align: center;
     padding-bottom: 31px;
 }
 
-.header-title__link-button {
+.banner__link {
     display: flex;
     margin: 0 auto;
     justify-content: center;
 }
 
-.header-title__link-text {
+.banner__link-text {
     padding: 12px 31px;
     border-radius: 3px;
     background-color: #dd783f;
     font: 400 13px/20px "Oxygen", sans-serif;
     text-decoration: none;
-    color: #fff;
+    color: #ffffff;
 }
 
 /* NAVIGATION BLOCK MENU */
 .navigation {
-    background-color: #fff;
+    background-color: #ffffff;
 }
 
 .navigation-block {
-    padding-top: 9px;
-    padding-bottom: 10px;
+    padding: 9px 10px 10px;
 }
 
 
 .navigation-block__menu-list {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
-    padding-top: 13px;
-    padding-bottom: 13px;
+    padding: 13px 0 13px;
 }
 
 .navigation-block__menu-item {}
@@ -125,15 +120,14 @@ body {
 /* MAIN BLOCK */
 .main-block {
     background-color: #f7f7f7;
-
 }
 
 /* FEATURE POST */
-.featured-post {   
+.featured-block {   
     padding: 60px 10px 0;
 }
 
-.post-title {
+.posts-title {
     text-align: center;
     max-width: 188px;    
     font: 400 20px/27px "Oxygen", sans-serif;
@@ -143,40 +137,39 @@ body {
     position: relative;
 }
 
-.post-title::after {
+.posts-title::after {
     content: "";
     display: block;
     height: 1px;
-    background-color: #DEDEDE;
+    background-color: #dedede;
     position: absolute;    
     width: 100%;
     bottom: 0;    
 }
 
-.featured-post__content {    
+.featured-block__content {    
     display: flex;
     justify-content: center;
     flex-wrap: wrap;        
     gap: 20px;
 }
 
-.feature-card-block__link { 
+.card__link {  
     text-decoration: none;      
     width: 460px;
-}
-
-.card {  
+    min-height: 280px;
     display: flex;
     flex-direction: column;
-    justify-content: end;
+    justify-content: flex-end;
     background-color: grey; 
     border-radius: 3px;
     position: relative;         
 }
 
 .card__image {
-    position: absolute;
-    top:0;  
+    object-fit: cover;
+    position: absolute; 
+    z-index: 0;   
     width: 100%;
     height: 100%;   
 }
@@ -194,43 +187,39 @@ body {
     text-transform: uppercase;
     background-color: #dd783F;
     font: 400 12px/13px "Oxygen", sans-serif;
-    color: #FFF;
+    color: #ffffff;
     border-radius: 2px;
 }
 
-.card__title {
-    position: relative;
-    padding-top: 157px;
-    padding-bottom: 6px;
-    padding-left: 20px;
-    color: #FFF;
+.card__title { 
+    z-index: 1;   
+    padding: 10px 0 6px 20px;
+    color: #ffffff;
     font: 400 27px/30px "Lora", sans-serif;
 }
 
-.card__subtitle {
-    flex-grow: 1;
-    position: relative;
-    padding-left: 20px;
-    padding-bottom: 12px;
+.card__subtitle {  
+    z-index: 1; 
+    padding: 0 0 12px 20px;
     color: rgba(255, 255, 255, 0.7);
     font: 400 14px/25px "Oxygen", sans-serif;
 }
 
-.card__author-date {
-    position: relative;
+.card__info {
+    z-index: 1; 
     display: flex;
     justify-content: space-between;
     padding: 0 20px 15px;
     align-items: center;
 }
 
-.card__photo {
+.card__author-photo {
     width: 26px;
     height: 26px;
     border-radius: 60px;
 }
 
-.card__name {
+.card__author-name {
     flex-grow: 1;
     padding-left: 10px;
     color: rgba(255, 255, 255, 0.7);
@@ -261,7 +250,7 @@ body {
 }
 
 .recent-card {
-    background: #FCFCFC;
+    background: #fcfcfc;
     max-width: 296px;
     display: flex;
     flex-direction: column;
@@ -270,7 +259,6 @@ body {
 .recent-card__image {
     max-width: 100%;
 }
-
 
 .recent-card__title {
     padding: 14px 0 6px 13px;
@@ -281,27 +269,25 @@ body {
 .recent-card__subtitle {
     flex-grow: 1;
     padding: 0 13px 12px;   
-    font: 400 13px/19px "Oxygen", sans-serif;
-    font-family: Oxygen;
+    font: 400 13px/19px "Oxygen", sans-serif;    
     color: #7a7a7a;
 ;
 }
 
-.recent-card__autor-date {
+.recent-card__info {
     border-top: 1px solid #efefef;
     display: flex;    
     align-items: center;
     padding: 7px 13px 6px;    
 }
 
-
-.recent-card__photo {
+.recent-card__author-photo {
     width: 26px;
     height: 26px;
     border-radius: 60px;
 }
 
-.recent-card__name {
+.recent-card__author-name {
     flex-grow: 1;
     padding-left: 10px;
     font: 400 11px/35px "Oxygen", sans-serif;
@@ -341,8 +327,7 @@ body {
 
 .footer__menu-link {
     text-transform: uppercase;
-    text-decoration: none;
-    font-weight: bold;
+    text-decoration: none;    
     color: rgba(255, 255, 255, 0.6);
     font: 400 12px/26px "Oxygen", sans-serif;
     letter-spacing: 0.6px;
