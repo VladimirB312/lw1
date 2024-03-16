@@ -1,25 +1,84 @@
 <?php
 $posts = [
- [ 
-   'sticker' => '',
-   'post_link' => './post.php',
-   'img_link' => './images/roadahead.jpg',
-   'title' => 'The Road Ahead',
-   'subtitle' => 'The road ahead might be paved - it might not be.',
-   'author_photo' => './images/matvogels.jpg',
-   'author_name' => 'Mat Vogels',
-   'date' => 'September 25, 2015',
- ],
- [ 
-  'sticker' => 'sticker',
-  'post_link' => '#',
-  'img_link' => './images/fromtop.jpg',
-  'title' => 'From Top Down',
-  'subtitle' => 'Once a year, go someplace you’ve never been before.',
-  'author_photo' => './images/william.jpg',
-  'author_name' => 'William Wong',
-  'date' => 'September 25, 2015',
-],
+  [
+    'sticker' => '',
+    'post_link' => './post.php',
+    'img_src' => './static/images/roadahead.jpg',
+    'title' => 'The Road Ahead',
+    'subtitle' => 'The road ahead might be paved - it might not be.',
+    'author_photo_src' => './static/images/matvogels.jpg',
+    'author_name' => 'Mat Vogels',
+    'date' => 1443139200,
+  ],
+  [
+    'sticker' => 'adventure',
+    'post_link' => '#',
+    'img_src' => './static/images/fromtop.jpg',
+    'title' => 'From Top Down',
+    'subtitle' => 'Once a year, go someplace you’ve never been before.',
+    'author_photo_src' => './static/images/william.jpg',
+    'author_name' => 'William Wong',
+    'date' => 1443139200,
+  ],
+];
+?>
+
+<?php
+$cards = [
+  [
+    'card_link' => '#',
+    'img_src' => './static/images/still.jpg',
+    'title' => 'Still Standing Tall',
+    'subtitle' => 'Life begins at the end of your comfort zone.',
+    'author_photo_src' => './static/images/william.jpg',
+    'author_name' => 'William Wong',
+    'date' => 1443139200,
+  ],
+  [
+    'card_link' => '#',
+    'img_src' => './static/images/sunny.jpg',
+    'title' => 'Sunny Side Up',
+    'subtitle' => 'No place is ever as bad as they tell you it’s going to be.',
+    'author_photo_src' => './static/images/matvogels.jpg',
+    'author_name' => 'Mat Vogels',
+    'date' => 1443139200,
+  ],
+  [
+    'card_link' => '#',
+    'img_src' => './static/images/water.jpg',
+    'title' => 'Water Falls',
+    'subtitle' => 'We travel not to escape life, but for life not to escape us.',
+    'author_photo_src' => './static/images/matvogels.jpg',
+    'author_name' => 'Mat Vogels',
+    'date' => 1443139200,
+  ],
+  [
+    'card_link' => '#',
+    'img_src' => './static/images/through.jpg',
+    'title' => 'Through the Mist',
+    'subtitle' => 'Travel makes you see what a tiny place you occupy in the world.',
+    'author_photo_src' => './static/images/william.jpg',
+    'author_name' => 'William Wong',
+    'date' => 1443139200,
+  ],
+  [
+    'card_link' => '#',
+    'img_src' => './static/images/awaken.jpg',
+    'title' => 'Awaken Early',
+    'subtitle' => 'Not all those who wander are lost.',
+    'author_photo_src' => './static/images/matvogels.jpg',
+    'author_name' => 'Mat Vogels',
+    'date' => 1443139200,
+  ],
+  [
+    'card_link' => '#',
+    'img_src' => './static/images/tryit.jpg',
+    'title' => 'Try it Always',
+    'subtitle' => 'The world is a book, and those who do not travel read only one page.',
+    'author_photo_src' => './static/images/matvogels.jpg',
+    'author_name' => 'Mat Vogels',
+    'date' => 1443139200,
+  ],
 ];
 ?>
 
@@ -29,12 +88,10 @@ $posts = [
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="styles/styleshome.css">
+  <link rel="stylesheet" href="static/styles/styleshome.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Oxygen:wght@300;400;700&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Oxygen:wght@300;400;700&display=swap" rel="stylesheet">
   <title>Home</title>
 </head>
 
@@ -94,89 +151,22 @@ $posts = [
   <main class="main-block">
     <div class="featured-block container">
       <h2 class="featured-block__title  posts-title">Featured Posts</h2>
-      <div class="featured-block__content card">
-        <?php 
+      <div class="featured-block__content">
+        <?php
         foreach ($posts as $post) {
-        include 'post_preview.php';
+          include 'post_preview.php';
         }
         ?>
       </div>
     </div>
     <div class="most-recent container">
-      <h2 class="most-recent__title post-title">Most Recent</h2>
+      <h2 class="most-recent__title posts-title">Most Recent</h2>
       <div class="most-recent__content">
-        <a href="#" class="most-recent__link">
-          <div class="most-recent__card recent-card">
-            <img class="recent-card__image" src="./images/still.jpg" alt="still.jpg">
-            <h3 class="recent-card__title">Still Standing Tall</h3>
-            <h4 class="recent-card__subtitle">Life begins at the end of your comfort zone.</h4>
-            <div class="recent-card__info">
-              <img class="recent-card__author-photo" src="./images/william.jpg" alt="William Wong">
-              <p class="recent-card__author-name">William Wong</p>
-              <p class="recent-card__date">9/25/2015</p>
-            </div>
-          </div>
-        </a>
-        <a href="#" class="most-recent__link">
-          <div class="most-recent__card recent-card">
-            <img class="recent-card__image" src="./images/sunny.jpg" alt="sunny.jpg">
-            <h3 class="recent-card__title">Sunny Side Up</h3>
-            <h4 class="recent-card__subtitle">No place is ever as bad as they tell you it’s going to be.</h4>
-            <div class="recent-card__info">
-              <img class="recent-card__author-photo" src="./images/matvogels.jpg" alt="Mat Vogels">
-              <p class="recent-card__author-name">Mat Vogels</p>
-              <p class="recent-card__date">9/25/2015</p>
-            </div>
-          </div>
-        </a>
-        <a href="#" class="most-recent__link">
-          <div class="most-recent__card recent-card">
-            <img class="recent-card__image" src="./images/water.jpg" alt="water.jpg">
-            <h3 class="recent-card__title">Water Falls</h3>
-            <h4 class="recent-card__subtitle">We travel not to escape life, but for life not to escape us.</h4>
-            <div class="recent-card__info">
-              <img class="recent-card__author-photo" src="./images/matvogels.jpg" alt="Mat Vogels">
-              <p class="recent-card__author-name">Mat Vogels</p>
-              <p class="recent-card__date">9/25/2015</p>
-            </div>
-          </div>
-        </a>
-        <a href="#" class="most-recent__link">
-          <div class="most-recent__card recent-card">
-            <img class="recent-card__image" src="./images/through.jpg" alt="through.jpg">
-            <h3 class="recent-card__title">Through the Mist</h3>
-            <h4 class="recent-card__subtitle">Travel makes you see what a tiny place you occupy in the world.</h4>
-            <div class="recent-card__info">
-              <img class="recent-card__author-photo" src="./images/william.jpg" alt="William Wong">
-              <p class="recent-card__author-name">William Wong</p>
-              <p class="recent-card__date">9/25/2015</p>
-            </div>
-          </div>
-        </a>
-        <a href="#" class="most-recent__link">
-          <div class="most-recent__card recent-card">
-            <img class="recent-card__image" src="./images/awaken.jpg" alt="awaken.jpg">
-            <h3 class="recent-card__title">Awaken Early</h3>
-            <h4 class="recent-card__subtitle">Not all those who wander are lost.</h4>
-            <div class="recent-card__info">
-              <img class="recent-card__author-photo" src="./images/matvogels.jpg" alt="Mat Vogels">
-              <p class="recent-card__author-name">Mat Vogels</p>
-              <p class="recent-card__date">9/25/2015</p>
-            </div>
-          </div>
-        </a>
-        <a href="#" class="most-recent__link">
-          <div class="most-recent__card recent-card">
-            <img class="recent-card__image" src="./images/tryit.jpg" alt="tryit.jpg">
-            <h3 class="recent-card__title">Try it Always</h3>
-            <h4 class="recent-card__subtitle">The world is a book, and those who do not travel read only one page.</h4>
-            <div class="recent-card__info">
-              <img class="recent-card__author-photo" src="./images/matvogels.jpg" alt="Mat Vogels">
-              <p class="recent-card__author-name">Mat Vogels</p>
-              <p class="recent-card__date">9/25/2015</p>
-            </div>
-          </div>
-        </a>
+        <?php
+        foreach ($cards as $card) {
+          include 'card_preview.php';
+        }
+        ?>
       </div>
     </div>
   </main>

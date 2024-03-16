@@ -20,7 +20,7 @@ body {
 /*HEADER*/
 .header {
     margin: 0 auto;
-    background: url("../images/header-background.jpg") no-repeat center / cover;
+    background: url("/static/images/header-background.jpg") no-repeat center / cover;
 }
 
 .header-nav {
@@ -35,7 +35,6 @@ body {
     color: #fff;
     padding: 3px 0 11px 10px;
     font: 400 26px/26px "Lora", sans-serif;
-
 }
 
 .header-nav__menu-list {
@@ -51,7 +50,6 @@ body {
     letter-spacing: 0.6px;
     padding: 10px 20px;
     text-decoration: none;
-
 }
 
 .banner {
@@ -102,7 +100,7 @@ body {
 .navigation-block__menu-list {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     padding: 13px 0 13px;
 }
@@ -154,7 +152,7 @@ body {
     gap: 20px;
 }
 
-.card__link {  
+.card {  
     text-decoration: none;      
     width: 460px;
     min-height: 280px;
@@ -174,12 +172,7 @@ body {
     height: 100%;   
 }
 
-.sticker {
-    position: relative;
-}
-
-.sticker::after {
-    content: "adventure";    
+.card__sticker {
     padding: 6px 9px 7px 9px;
     position: absolute;
     top: 20px;
@@ -190,7 +183,6 @@ body {
     color: #ffffff;
     border-radius: 2px;
 }
-
 .card__title { 
     z-index: 1;   
     padding: 10px 0 6px 20px;
@@ -244,17 +236,15 @@ body {
     flex-wrap: wrap;
 }
 
-.most-recent__link {
+.recent-card {
     text-decoration: none;      
     display: flex;
-}
-
-.recent-card {
     background: #fcfcfc;
     max-width: 296px;
     display: flex;
     flex-direction: column;
 }
+
 
 .recent-card__image {
     max-width: 100%;
@@ -302,7 +292,7 @@ body {
 /* FOOTER */
 .footer {
     margin: 0 auto;
-    background-image: url(../images/footer.png);
+    background-image: url(/static/images/footer.png);
     background-size: cover;
     background-repeat: no-repeat;
 }
