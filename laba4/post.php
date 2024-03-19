@@ -1,10 +1,28 @@
-<?php  
+<?php
 $postid = $_GET['id'];
 ?>
 
 <?php
+$header = [
+  'logo_link' => '/home',
+  'logo_text' => 'Escape.',
+  'menu' => [
+    'menu_item1' => ['name' => 'Home', 'link' => '/home'],
+    'menu_item2' => ['name' => 'Categories', 'link' => '#'],
+    'menu_item3' => ['name' => 'About', 'link' => '#'],
+    'menu_item4' => ['name' => 'Contact', 'link' => '#'],
+  ],
+  'banner_title' => "Let's do it together.",
+  'banner_subtitle' => "We travel the world in search of stories. Come along for the ride.",
+  'banner_link' => '#',
+  'banner_link_text' => 'View Latest Posts',
+
+];
+?>
+
+<?php
 $post =
-  [     
+  [
     'img_src' => './static/images/image.png',
     'title' => 'The Road Ahead',
     'subtitle' => 'The road ahead might be paved - it might not be.',
@@ -57,6 +75,19 @@ $post =
   ];
 ?>
 
+<?php
+$footer = [
+  'logo_link' => '/home',
+  'logo_text' => 'Escape.',
+  'menu' => [
+    'menu_item1' => ['name' => 'Home', 'link' => '/home'],
+    'menu_item2' => ['name' => 'Categories', 'link' => '#'],
+    'menu_item3' => ['name' => 'About', 'link' => '#'],
+    'menu_item4' => ['name' => 'Contact', 'link' => '#'],
+  ],
+];
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -66,73 +97,31 @@ $post =
   <link rel="stylesheet" href="styles/stylespost.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Oxygen:wght@300;400;700&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Oxygen:wght@300;400;700&display=swap" rel="stylesheet">
   <title>The Road Ahead</title>
 </head>
 
 <body>
-  <header class="header container">
-    <a href="##" class="header__logo-image">
-      <img src="images/logo.svg" alt="Escape Logo" width="92" height="26">
-    </a>
-    <nav class="header__menu">
-      <ul class="header__menu-list">
-        <li class="header__menu-item">
-          <a href="./home.php" class="header__menu-link">Home</a>
-        </li>
-        <li class="header__menu-item">
-          <a href="##" class="header__menu-link">Categories</a>
-        </li>
-        <li class="header__menu-item">
-          <a href="##" class="header__menu-link">About</a>
-        </li>
-        <li class="header__menu-item">
-          <a href="##" class="header__menu-link">Contact</a>
-        </li>
-      </ul>
-    </nav>
-  </header>
+  <?php
+  include 'header.php';
+  ?>
   <main class="main">
     <div class="title-block container">
-      <h1 class="title-block__title"><?= $post['title']?> <?= $postid ?></h1>
-      <h2 class="title-block__subtitle"><?= $post['subtitle']?></h2>
+      <h1 class="title-block__title"><?= $post['title'] ?> <?= $postid ?></h1>
+      <h2 class="title-block__subtitle"><?= $post['subtitle'] ?></h2>
     </div>
     <div class="content">
       <img class="content__image" src="<?= $post['img_src'] ?>" alt="image">
       <div class="content__text container">
-      <?php foreach ($post['text'] as $paragraf): ?>
-      <p><?= $paragraf ?></p>
-      <?php endforeach; ?>       
+        <?php foreach ($post['text'] as $paragraf) : ?>
+          <p><?= $paragraf ?></p>
+        <?php endforeach; ?>
       </div>
     </div>
   </main>
-  <footer class="footer">
-    <div class="footer__background">
-      <div class="footer__link container">
-        <a href="##" class="footer__logo-image">
-          Escape
-        </a>
-        <nav class="footer__menu">
-          <ul class="footer__menu-list">
-            <li class="footer__menu-item">
-              <a href="##" class="footer__menu-link">Home</a>
-            </li>
-            <li class="footer__menu-item">
-              <a href="##" class="footer__menu-link">Categories</a>
-            </li>
-            <li class="footer__menu-item">
-              <a href="##" class="footer__menu-link">About</a>
-            </li>
-            <li class="footer__menu-item">
-              <a href="##" class="footer__menu-link">Contact</a>
-            </li>
-          </ul>
-        </nav>
-      </div>
-    </div>
-  </footer>
+  <?php
+  include 'footer.php';
+  ?>
 </body>
 
 </html>

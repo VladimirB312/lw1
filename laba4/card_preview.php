@@ -1,4 +1,4 @@
-<a class="recent-card" title="<?= $card['title'] ?>" href="<?= $card['card_link'] ?>">
+<a class="recent-card" title="<?= $card['title'] ?>" href="/post?id=<?= $card['id'] ?>">
     <img class="recent-card__image" src="<?= $card['img_src'] ?>">
     <h3 class="recent-card__title"><?= $card['title'] ?></h3>
     <h4 class="recent-card__subtitle"><?= $card['subtitle'] ?></h4>

@@ -1,6 +1,35 @@
 <?php
+$header = [
+  'logo_link' => '/home',
+  'logo_text' => 'Escape.',
+  'menu' => [
+    'menu_item1' => ['name' => 'Home', 'link' => '/home'],
+    'menu_item2' => ['name' => 'Categories', 'link' => '#'],
+    'menu_item3' => ['name' => 'About', 'link' => '#'],
+    'menu_item4' => ['name' => 'Contact', 'link' => '#'],
+  ],
+  'banner_title' => "Let's do it together.",
+  'banner_subtitle' => "We travel the world in search of stories. Come along for the ride.",
+  'banner_link' => '#',
+  'banner_link_text' => 'View Latest Posts',
+
+];
+?>
+
+<?php
+$navigation = [
+  'menu-item1' => ['name' => 'Nature', 'link' => '#'],
+  'menu-item2' => ['name' => 'Photography', 'link' => '#'],
+  'menu-item3' => ['name' => 'Relaxation', 'link' => '#'],
+  'menu-item4' => ['name' => 'Vacation', 'link' => '#'],
+  'menu-item5' => ['name' => 'Travel', 'link' => '#'],
+  'menu-item6' => ['name' => 'Adventure', 'link' => '#'],
+];
+?>
+
+<?php
 $posts = [
-  [ 
+  [
     'id' => 1,
     'sticker' => '',
     'img_src' => './static/images/roadahead.jpg',
@@ -25,7 +54,7 @@ $posts = [
 
 <?php
 $cards = [
-  [ 
+  [
     'id' => 3,
     'card_link' => '#',
     'img_src' => './static/images/still.jpg',
@@ -88,6 +117,19 @@ $cards = [
 ];
 ?>
 
+<?php
+$footer = [
+  'logo_link' => '/home',
+  'logo_text' => 'Escape.',
+  'menu' => [
+    'menu_item1' => ['name' => 'Home', 'link' => '/home'],
+    'menu_item2' => ['name' => 'Categories', 'link' => '#'],
+    'menu_item3' => ['name' => 'About', 'link' => '#'],
+    'menu_item4' => ['name' => 'Contact', 'link' => '#'],
+  ],
+];
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -102,58 +144,12 @@ $cards = [
 </head>
 
 <body>
-  <div class="header">
-    <header class="header-nav container">
-      <a href="#" class="header-nav__logo">
-        Escape.
-      </a>
-      <nav class="header-nav__menu">
-        <ul class="header-nav__menu-list">
-          <li class="header-nav__menu-item">
-            <a href="#" class="header-nav__menu-link">Home</a>
-          </li>
-          <li class="header-nav__menu-item">
-            <a href="#" class="header-nav__menu-link">Categories</a>
-          </li>
-          <li class="header-nav__menu-item">
-            <a href="#" class="header-nav__menu-link">About</a>
-          </li>
-          <li class="header-nav__menu-item">
-            <a href="#" class="header-nav__menu-link">Contact</a>
-          </li>
-        </ul>
-      </nav>
-    </header>
-    <div class="banner container">
-      <h1 class="banner__title">Let's do it together.</h1>
-      <h2 class="banner__subtitle">We travel the world in search of stories. Come along for the ride.</h2>
-      <div class="banner__link">
-        <a href="#" class="banner__link-text">View Latest Posts</a>
-      </div>
-    </div>
-  </div>
-  <div class="navigation-block container">
-    <ul class="navigation-block__menu-list">
-      <li class="navigation-block__menu-item">
-        <a href="#" class="navigation-block__menu-link">Nature</a>
-      </li>
-      <li class="navigation-block__menu-item">
-        <a href="#" class="navigation-block__menu-link">Photography</a>
-      </li>
-      <li class="navigation-block__menu-item">
-        <a href="#" class="navigation-block__menu-link">Relaxation</a>
-      </li>
-      <li class="navigation-block__menu-item">
-        <a href="#" class="navigation-block__menu-link">Vacation</a>
-      </li>
-      <li class="navigation-block__menu-item">
-        <a href="#" class="navigation-block__menu-link">Travel</a>
-      </li>
-      <li class="navigation-block__menu-item">
-        <a href="#" class="navigation-block__menu-link">Adventure</a>
-      </li>
-    </ul>
-  </div>
+  <?php
+  include 'home_header.php';
+  ?>
+  <?php
+  include 'home_navigation.php';
+  ?>
   <main class="main-block">
     <div class="featured-block container">
       <h2 class="featured-block__title  posts-title">Featured Posts</h2>
@@ -176,31 +172,9 @@ $cards = [
       </div>
     </div>
   </main>
-  <footer class="footer">
-    <div class="footer__background">
-      <div class="footer__link container">
-        <a href="#" class="footer__logo-image">
-          Escape.
-        </a>
-        <nav class="footer__menu">
-          <ul class="footer__menu-list">
-            <li class="footer__menu-item">
-              <a href="#" class="footer__menu-link">Home</a>
-            </li>
-            <li class="footer__menu-item">
-              <a href="#" class="footer__menu-link">Categories</a>
-            </li>
-            <li class="footer__menu-item">
-              <a href="#" class="footer__menu-link">About</a>
-            </li>
-            <li class="footer__menu-item">
-              <a href="#" class="footer__menu-link">Contact</a>
-            </li>
-          </ul>
-        </nav>
-      </div>
-    </div>
-  </footer>
+  <?php
+  include 'footer.php';
+  ?>
 </body>
 
 </html>
