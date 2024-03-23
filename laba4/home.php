@@ -1,33 +1,4 @@
 <?php
-$header = [
-  'logo_link' => '/home',
-  'logo_text' => 'Escape.',
-  'menu' => [
-    'menu_item1' => ['name' => 'Home', 'link' => '/home'],
-    'menu_item2' => ['name' => 'Categories', 'link' => '#'],
-    'menu_item3' => ['name' => 'About', 'link' => '#'],
-    'menu_item4' => ['name' => 'Contact', 'link' => '#'],
-  ],
-  'banner_title' => "Let's do it together.",
-  'banner_subtitle' => "We travel the world in search of stories. Come along for the ride.",
-  'banner_link' => '#',
-  'banner_link_text' => 'View Latest Posts',
-
-];
-?>
-
-<?php
-$navigation = [
-  'menu-item1' => ['name' => 'Nature', 'link' => '#'],
-  'menu-item2' => ['name' => 'Photography', 'link' => '#'],
-  'menu-item3' => ['name' => 'Relaxation', 'link' => '#'],
-  'menu-item4' => ['name' => 'Vacation', 'link' => '#'],
-  'menu-item5' => ['name' => 'Travel', 'link' => '#'],
-  'menu-item6' => ['name' => 'Adventure', 'link' => '#'],
-];
-?>
-
-<?php
 $posts = [
   [
     'id' => 1,
@@ -50,9 +21,7 @@ $posts = [
     'date' => 1443139200,
   ],
 ];
-?>
 
-<?php
 $cards = [
   [
     'id' => 3,
@@ -113,19 +82,6 @@ $cards = [
     'author_photo_src' => './static/images/matvogels.jpg',
     'author_name' => 'Mat Vogels',
     'date' => 1443139200,
-  ],
-];
-?>
-
-<?php
-$footer = [
-  'logo_link' => '/home',
-  'logo_text' => 'Escape.',
-  'menu' => [
-    'menu_item1' => ['name' => 'Home', 'link' => '/home'],
-    'menu_item2' => ['name' => 'Categories', 'link' => '#'],
-    'menu_item3' => ['name' => 'About', 'link' => '#'],
-    'menu_item4' => ['name' => 'Contact', 'link' => '#'],
   ],
 ];
 ?>

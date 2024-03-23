@@ -1,3 +1,14 @@
+<?php
+$navigation = [
+  ['name' => 'Nature', 'link' => '#'],
+  ['name' => 'Photography', 'link' => '#'],
+  ['name' => 'Relaxation', 'link' => '#'],
+  ['name' => 'Vacation', 'link' => '#'],
+  ['name' => 'Travel', 'link' => '#'],
+  ['name' => 'Adventure', 'link' => '#'],
+];
+?>
+
 <div class="navigation-block container">
   <ul class="navigation-block__menu-list">
     <?php foreach ($navigation as $nav_item) : ?>
