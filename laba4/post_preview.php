@@ -1,4 +1,4 @@
-<a class="card" title="<?= $post['title'] ?>" href="/post?id=<?= $post['id'] ?>">
+<a class="card" title="<?= $post['title'] ?>" href="/post.php?id=<?= $post['post_id'] ?>">
   <img class="card__image" src="<?= $post['img_src'] ?>" alt="The Road Ahead">
   <h3 class="card__title"><?= $post['title'] ?></h3>
   <h4 class="card__subtitle"><?= $post['subtitle'] ?></h4>

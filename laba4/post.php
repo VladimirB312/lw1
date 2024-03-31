@@ -1,5 +1,5 @@
 <?php
-$postid = $_GET['id'];
+$postId = $_GET['id'];
 $post =
   [
     'img_src' => './static/images/image.png',
@@ -64,7 +64,7 @@ $post =
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Oxygen:wght@300;400;700&display=swap" rel="stylesheet">
-  <title><?= $post['title'] ?><?= $postid ?></title>
+  <title><?= $post['title'] ?><?= $postId ?></title>
 </head>
 
 <body>
@@ -79,8 +79,8 @@ $post =
     <div class="content">
       <img class="content__image" src="<?= $post['img_src'] ?>" alt="image">
       <div class="content__text container">
-        <?php foreach ($post['text'] as $paragraf) : ?>
-          <p><?= $paragraf ?></p>
+        <?php foreach ($post['text'] as $paragraph) : ?>
+          <p><?= $paragraph ?></p>
         <?php endforeach; ?>
       </div>
     </div>
