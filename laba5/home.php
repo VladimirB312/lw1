@@ -1,26 +1,11 @@
 <?php
-const HOST = 'localhost';
-const USERNAME = 'blog_user';
-const PASSWORD = 'password';
-const DATABASE = 'blog';
-
-function createDBConnection(): mysqli
-{
-  $conn = new mysqli(HOST, USERNAME, PASSWORD, DATABASE);
-  if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-  }
-  return $conn;
-}
-
-function closeDBConnection(mysqli $conn): void
-{
-  $conn->close();
-}
+include 'mysql.php';
 
 $conn = createDBConnection();
-$feature_block_title = 'Featured Posts';
-$most_recent_title = 'Most Recent';
+$posts = getPostsFromDB($conn);
+closeDBConnection($conn);
+$featureBlockTitle = 'Featured Posts';
+$mostRecentTitle = 'Most Recent';
 ?>
 
 <!DOCTYPE html>
@@ -45,34 +30,26 @@ $most_recent_title = 'Most Recent';
   ?>
   <main class="main-block">
     <div class="featured-block container">
-      <h2 class="featured-block__title  posts-title"><?= $feature_block_title ?></h2>
+      <h2 class="featured-block__title  posts-title"><?= $featureBlockTitle ?></h2>
       <div class="featured-block__content">
         <?php
-        $sql = "SELECT * FROM post WHERE featured = 1";
-        $result = $conn->query($sql);
-        if ($result->num_rows > 0) {
-          while ($row = $result->fetch_assoc()) {
+        foreach ($posts as $post) {
+          if ($post['featured']) {
             include 'post_preview.php';
           }
-        } else {
-          echo "0 results";
-        };
+        }
         ?>
       </div>
     </div>
     <div class="most-recent container">
-      <h2 class="most-recent__title posts-title"><?= $most_recent_title ?></h2>
+      <h2 class="most-recent__title posts-title"><?= $mostRecentTitle ?></h2>
       <div class="most-recent__content">
         <?php
-        $sql = "SELECT * FROM post WHERE featured = 0";
-        $result = $conn->query($sql);
-        if ($result->num_rows > 0) {
-          while ($row = $result->fetch_assoc()) {
+        foreach ($posts as $post) {
+          if ($post['recent']) {
             include 'card_preview.php';
           }
-        } else {
-          echo "0 results";
-        };
+        }
         ?>
       </div>
     </div>
@@ -83,4 +60,3 @@ $most_recent_title = 'Most Recent';
 </body>
 
 </html>
-<?php closeDBConnection($conn, $featured = 0); ?>

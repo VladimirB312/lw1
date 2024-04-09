@@ -1,65 +1,67 @@
 <?php
-function createDBConnection(): mysqli
-{
-  $conn = new mysqli(HOST, USERNAME, PASSWORD, DATABASE);
-  if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-  }
-  echo "Connected successfully<br>";
-  return $conn;
-}
+include 'mysql.php';
 
-function closeDBConnection(mysqli $conn): void
-{
-  $conn->close();
-}
-
-const HOST = 'localhost';
-const USERNAME = 'blog_user';
-const PASSWORD = 'password';
-const DATABASE = 'blog';
 $conn = createDBConnection();
 
-
 $method = $_SERVER['REQUEST_METHOD'];
-echo $method;
+echo $method, '<br/>';
+
+$errors = [];
 
 
-if ($method === 'POST') {
-  $dataAsJson = file_get_contents("php://input");
-  $dataAsArray = json_decode($dataAsJson, true);
-  saveImage($dataAsArray['image']);
-  $sql = "INSERT INTO post (title, subtitle, content, author, author_url, author_alt, publish_date, image_url, image_alt, sticker, featured) VALUES ('{$dataAsArray['title']}', '{$dataAsArray['subtitle']}', '{$dataAsArray['content']}', '{$dataAsArray['author']}', '{$dataAsArray['author_url']}', '{$dataAsArray['author_alt']}', '{$dataAsArray['publish_date']}', '{$dataAsArray['image_url']}', '{$dataAsArray['image_alt']}', '{$dataAsArray['sticker']}', {$dataAsArray['featured']});";
-  if ($conn->query($sql)) {
-    echo "Данные успешно добавлены";
+if ($method === 'POST' && $dataAsArray = getJsonData()) {
+  if (!isset($dataAsArray['title']) || strlen($dataAsArray['title']) < 3)
+    $errors[] = 'Invalid or missing title.';
+  if (!isset($dataAsArray['subtitle']) || strlen($dataAsArray['subtitle']) < 3)
+    $errors[] = 'Invalid or missing subtitle.';
+  if (!isset($dataAsArray['content']) || strlen($dataAsArray['content']) < 5)
+    $errors[] = 'Invalid or missing content.';
+  if (!isset($dataAsArray['author_name']) || strlen($dataAsArray['author_name']) < 5)
+    $errors[] = 'Invalid or missing author_name.';
+  if (!isset($dataAsArray['author_photo_url']) || strlen($dataAsArray['author_photo_url']) < 5)
+    $errors[] = 'Invalid or missing author_photo_url.';
+  if (!isset($dataAsArray['author_photo_alt']) || strlen($dataAsArray['author_photo_alt']) < 2)
+    $errors[] = 'Invalid or missing author_photo_alt.';
+  if (!isset($dataAsArray['image']) || strlen($dataAsArray['image']) < 2)
+    $errors[] = 'Invalid or missing image.';
+  if (!isset($dataAsArray['sticker']))
+    $errors[] = 'Invalid or missing sticker.';
+  if (!isset($dataAsArray['featured']) || !($dataAsArray['featured'] == 0 || $dataAsArray['featured'] == 1))
+    $errors[] = 'Invalid or missing featured.';
+  if (!isset($dataAsArray['recent']) || !($dataAsArray['recent'] == 0 || $dataAsArray['recent'] == 1))
+    $errors[] = 'Invalid or missing recent.'; 
+
+  if (empty($errors)) {
+    $post_id = generate_uuid();
+    $publish_date = date('Y-m-d H:i:s', time());
+    $image_url = '';
+    saveImage($dataAsArray['image'], $post_id, $image_url);
+    $sql = "INSERT INTO post
+      SET 
+        post_id = '$post_id',
+        title = '{$dataAsArray['title']}',
+        subtitle = '{$dataAsArray['subtitle']}',
+        content = '{$dataAsArray['content']}',
+        author_name = '{$dataAsArray['author_name']}',
+        author_photo_url = '{$dataAsArray['author_photo_url']}',
+        author_photo_alt = '{$dataAsArray['author_photo_alt']}',
+        publish_date = '{$publish_date}',    
+        image_alt = '{$dataAsArray['image_alt']}',
+        image_url = '{$image_url}',
+        sticker = '{$dataAsArray['sticker']}',
+        featured = {$dataAsArray['featured']}, 
+        recent = {$dataAsArray['recent']}";
+    if ($conn->query($sql)) {
+      echo "Данные успешно добавлены <br/>";
+    } else {
+      echo "Ошибка: " . $conn->error;
+    }
   } else {
-    echo "Ошибка: " . $conn->error;
-  };
-}
-
-function saveImage(string $imageBase64)
-{
-  $imageBase64Array = explode(';base64,', $imageBase64);
-  $imgExtention = str_replace('data:image/', '', $imageBase64Array[0]);
-  $imageDecoded = base64_decode($imageBase64Array[1]);
-  global $dataAsArray;
-  saveFile("images/{$dataAsArray['image_name']}.{$imgExtention}", $imageDecoded);
-}
-
-function saveFile(string $file, string $data): void
-{
-  $myFile = fopen($file, 'w');
-  if (!$myFile) {
-    echo 'Произошла ошибка при открытии файла';
-    return;
+    echo 'Ошибки: </br>';
+    foreach ($errors as $error) {
+      echo $error, '</br>';
+    }
   }
-
-  $result = fwrite($myFile, $data);
-  if ($result) {
-    echo 'Данные успешно сохранены в файл';
-  } else {
-    echo 'Произошла ошибка при сохранении данных в файл';
-  }
-
-  fclose($myFile);
+} else {
+  echo "Ошибка в запросе. </br>";
 }
