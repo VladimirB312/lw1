@@ -22,6 +22,7 @@ function getPostsFromDB(mysqli $conn): array
 {
   $sql = "SELECT * FROM post ORDER BY publish_date DESC";
   $result = $conn->query($sql);
+
   if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
       $posts[] = $row;
@@ -29,6 +30,7 @@ function getPostsFromDB(mysqli $conn): array
   } else {
     echo "0 results <br/>";
   }
+
   return $posts;
 }
 
@@ -39,30 +41,38 @@ function getPostFromDB(mysqli $conn, $post_id)
   if ($result->num_rows == 1) {
     return $result->fetch_assoc();
   }
+
+  return null;
 }
 
-function saveImage(string $imageBase64, string $post_id, string &$image_url)
+function saveImage(string $imageBase64, string $post_id): string
 {
   $imageBase64Array = explode(';base64,', $imageBase64);
   $imgExtention = str_replace('data:image/', '', $imageBase64Array[0]);
   $imageDecoded = base64_decode($imageBase64Array[1]);
-  saveFile("images/{$post_id}.{$imgExtention}", $imageDecoded);
+  try {
+    saveFile("images/{$post_id}.{$imgExtention}", $imageDecoded);
+  } catch (\Throwable $th) {
+    echo $th;
+    return '';
+  }
+
   $image_url = "./static/images/{$post_id}.{$imgExtention}";
+  return $image_url;
 }
 
 function saveFile(string $file, string $data): void
 {
   $myFile = fopen($file, 'w');
   if (!$myFile) {
-    echo 'Произошла ошибка при открытии файла <br/>';
-    return;
+    throw new Error('Произошла ошибка при открытии файла');
   }
 
   $result = fwrite($myFile, $data);
   if ($result) {
     echo 'Данные успешно сохранены в файл <br/>';
   } else {
-    echo 'Произошла ошибка при сохранении данных в файл <br/>';
+    throw new Error('Произошла ошибка при сохранении данных в файл');
   }
 
   fclose($myFile);
@@ -71,9 +81,9 @@ function saveFile(string $file, string $data): void
 function getJsonData()
 {
   $dataAsJson = file_get_contents("php://input");
-  if ($dataAsArray = json_decode($dataAsJson, true)) {    
-    return $dataAsArray;
-  }
+  $data = json_decode($dataAsJson, true);
+
+  return $data ?? null;
 }
 
 function generate_uuid()

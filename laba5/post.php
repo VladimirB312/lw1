@@ -1,16 +1,24 @@
 <?php
 include 'mysql.php';
 
-
 $conn = createDBConnection();
 
-$post_id = isset($_GET['id']) ? $conn->real_escape_string($_GET['id']) : null;
-if (!$post_id || !($post = getPostFromDB($conn, $post_id))) {
+$post_id = isset($_GET['id'])
+  ? $conn->real_escape_string($_GET['id'])
+  : null;
+
+if (!$post_id) {
   header("Location: /404.php");
-} else { 
-  $post['content'] = explode("\n", $post['content']); 
+  return;
 }
 
+$post = getPostFromDB($conn, $post_id);
+if (!$post) {  
+  header("Location: /404.php");
+  return;  
+}
+
+$post['content'] = explode("\n", $post['content']);
 
 ?>
 
@@ -39,9 +47,9 @@ if (!$post_id || !($post = getPostFromDB($conn, $post_id))) {
     <div class="content">
       <img class="content__image" src="<?= $post['image_url'] ?>" alt="<?= $post['image_alt'] ?>">
       <div class="content__text container">
-        <?php foreach ($post['content'] as $paragrah): ?>
+        <?php foreach ($post['content'] as $paragrah) : ?>
           <p><?= $paragrah ?></p>
-          <?php endforeach; ?>  
+        <?php endforeach; ?>
       </div>
     </div>
   </main>

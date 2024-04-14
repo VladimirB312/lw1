@@ -8,50 +8,58 @@ echo $method, '<br/>';
 
 $errors = [];
 
+$data = getJsonData();
 
-if ($method === 'POST' && $dataAsArray = getJsonData()) {
-  if (!isset($dataAsArray['title']) || strlen($dataAsArray['title']) < 3)
+if ($method === 'POST' && $data) {
+  if (!isset($data['title']) || strlen($data['title']) < 3)
     $errors[] = 'Invalid or missing title.';
-  if (!isset($dataAsArray['subtitle']) || strlen($dataAsArray['subtitle']) < 3)
+  if (!isset($data['subtitle']) || strlen($data['subtitle']) < 3)
     $errors[] = 'Invalid or missing subtitle.';
-  if (!isset($dataAsArray['content']) || strlen($dataAsArray['content']) < 5)
+  if (!isset($data['content']) || strlen($data['content']) < 5)
     $errors[] = 'Invalid or missing content.';
-  if (!isset($dataAsArray['author_name']) || strlen($dataAsArray['author_name']) < 5)
+  if (!isset($data['author_name']) || strlen($data['author_name']) < 5)
     $errors[] = 'Invalid or missing author_name.';
-  if (!isset($dataAsArray['author_photo_url']) || strlen($dataAsArray['author_photo_url']) < 5)
+  if (!isset($data['author_photo_url']) || strlen($data['author_photo_url']) < 5)
     $errors[] = 'Invalid or missing author_photo_url.';
-  if (!isset($dataAsArray['author_photo_alt']) || strlen($dataAsArray['author_photo_alt']) < 2)
+  if (!isset($data['author_photo_alt']) || strlen($data['author_photo_alt']) < 2)
     $errors[] = 'Invalid or missing author_photo_alt.';
-  if (!isset($dataAsArray['image']) || strlen($dataAsArray['image']) < 2)
+  if (!isset($data['image']) || strlen($data['image']) < 2)
     $errors[] = 'Invalid or missing image.';
-  if (!isset($dataAsArray['sticker']))
+  if (!isset($data['sticker']))
     $errors[] = 'Invalid or missing sticker.';
-  if (!isset($dataAsArray['featured']) || !($dataAsArray['featured'] == 0 || $dataAsArray['featured'] == 1))
+  if (!isset($data['featured']) || !($data['featured'] == 0 || $data['featured'] == 1))
     $errors[] = 'Invalid or missing featured.';
-  if (!isset($dataAsArray['recent']) || !($dataAsArray['recent'] == 0 || $dataAsArray['recent'] == 1))
-    $errors[] = 'Invalid or missing recent.'; 
+  if (!isset($data['recent']) || !($data['recent'] == 0 || $data['recent'] == 1))
+    $errors[] = 'Invalid or missing recent.';
 
   if (empty($errors)) {
     $post_id = generate_uuid();
     $publish_date = date('Y-m-d H:i:s', time());
-    $image_url = '';
-    saveImage($dataAsArray['image'], $post_id, $image_url);
-    $sql = "INSERT INTO post
-      SET 
-        post_id = '$post_id',
-        title = '{$dataAsArray['title']}',
-        subtitle = '{$dataAsArray['subtitle']}',
-        content = '{$dataAsArray['content']}',
-        author_name = '{$dataAsArray['author_name']}',
-        author_photo_url = '{$dataAsArray['author_photo_url']}',
-        author_photo_alt = '{$dataAsArray['author_photo_alt']}',
-        publish_date = '{$publish_date}',    
-        image_alt = '{$dataAsArray['image_alt']}',
-        image_url = '{$image_url}',
-        sticker = '{$dataAsArray['sticker']}',
-        featured = {$dataAsArray['featured']}, 
-        recent = {$dataAsArray['recent']}";
-    if ($conn->query($sql)) {
+    $image_url = saveImage($data['image'], $post_id);
+
+    if(!$image_url) {
+      $errors[] = 'error parse image'; 
+    } 
+
+    
+    $query = "INSERT INTO post
+    SET 
+      post_id = '$post_id',
+      title = '{$data['title']}',
+      subtitle = '{$data['subtitle']}',
+      content = '{$data['content']}',
+      author_name = '{$data['author_name']}',
+      author_photo_url = '{$data['author_photo_url']}',
+      author_photo_alt = '{$data['author_photo_alt']}',
+      publish_date = '{$publish_date}',    
+      image_alt = '{$data['image_alt']}',
+      image_url = '{$image_url}',
+      sticker = '{$data['sticker']}',
+      featured = {$data['featured']}, 
+      recent = {$data['recent']}";
+
+    
+    if ($image_url && $conn->query($query)) {
       echo "Данные успешно добавлены <br/>";
     } else {
       echo "Ошибка: " . $conn->error;
