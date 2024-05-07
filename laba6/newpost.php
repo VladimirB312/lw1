@@ -44,7 +44,7 @@
                     <label class="post__title-label">Title</label>
                     <input type="text" id="titleField" class="post__title-field" placeholder="New Post" maxlength="50">
                     <label class="post__description-label">Short description</label>
-                    <input type="text" id="descriptionField" class="post__description-field" placeholder="Please, enter any description"  maxlength="100">
+                    <input type="text" id="descriptionField" class="post__description-field" placeholder="Please, enter any description" maxlength="100">
                     <label class="post__author-name-label">Author name</label>
                     <input type="text" id="authorNameField" class="post__author-name-field" maxlength="50">
                     <label class="post__author-photo-label">Author Photo</label>
@@ -53,25 +53,29 @@
                         <div id="photoIcon" class="post__author-photo-icon"></div>
                         <label for="uploadAuhorPhotoButton" id="labelNew" class="post__author-photo-upload-label">Upload</label>
                         <input type="file" id="uploadAuhorPhotoButton" name="upload-photo" class="post__author-photo-upload-button" onchange="previewAuthorPhoto()">
-                        <button type="button" id="removeButtonInField" class="post__author-photo-remove-button post__author-photo-remove-button_disabled">Remove</button> 
+                        <button type="button" id="removeButtonInField" class="post__author-photo-remove-button post__author-photo-remove-button_disabled">Remove</button>
                     </div>
                     <label class="post__publish-date-label">Publish Date</label>
                     <input type="date" class="post__publish-date-field" value="2024-04-18">
                     <label class="post__hero-image-label">Hero Image</label>
                     <div class="post__hero-image-upload">
-                        <label for="hero-image" class="post__hero-image-upload-label upload-area">
+                        <img src="#" id="heroImage" class="post-hero-image-loaded disable" width="560" height="160">
+                        <label for="heroImageField" id="labelImageField" class="post__hero-image-upload-label upload-area">
                             <p class="upload-area__text">Upload</p>
                         </label>
-                        <input type="file" id="hero-image" name="hero-image" class="post__hero-image-field">
-                        <p class="post__desc-image-format">Size up to 10mb. Format: png, jpeg, gif.</p>
+                        <input type="file" id="heroImageField" name="hero-image" class="post__hero-image-field" onchange="previewHeroImage()">
+                        <button type="button" id="removeHeroImage" class="post__hero-image-remove-button disable">Remove</button>
+                        <p id="descHeroImageFormat" class="post__desc-image-format">Size up to 10mb. Format: png, jpeg, gif.</p>
                     </div>
                     <label class="post__hero-small-image-label">Hero Image </label>
                     <div class="post__hero-small-image-upload">
-                        <label for="hero-small-image" class="post__hero-small-image-upload-label small-upload-area">
+                        <img src="#" id="heroSmallImage" class="post__hero-small-image-loaded disable" width="296" height="150">
+                        <label for="heroSmallImageField" id="labelSmallImageField" class="post__hero-small-image-upload-label small-upload-area">
                             <p class="small-upload-area__text">Upload</p>
                         </label>
-                        <input type="file" id="hero-small-image" name="hero-small-image" class="post__hero-small-image-field">
-                        <p class="post__desc-small-image-format">Size up to 10mb. Format: png, jpeg, gif.</p>
+                        <input type="file" id="heroSmallImageField" name="hero-small-image" class="post__hero-small-image-field" onchange="previewHeroSmallImage()">
+                        <button type="button" id="removeHeroSmallImage" class="post__hero-small-image-remove-button disable">Remove</button>
+                        <p id="descHeroSmallImageFormat" class="post__desc-small-image-format">Size up to 10mb. Format: png, jpeg, gif.</p>
                     </div>
                 </form>
                 <div class="information__preview">
@@ -87,7 +91,7 @@
                                 <div class="article-preview__page article">
                                     <h4 id="postTitle" class="article__title">New Post</h4>
                                     <h5 id="postDescription" class="article__desc">Please, enter any description</h5>
-                                    <div class="article__image"></div>
+                                    <div class="article__image-wrapper"><img src="#" id="previewHeroImage" class="article__image disable" width="402" height="160"></div>
                                 </div>
                             </div>
                         </div>
@@ -96,13 +100,13 @@
                         <h3 class="card-prview__caption">Post card preview</h3>
                         <div class="card-preview__window">
                             <div class="card-preview__card card">
-                                <div class="card__image"></div>
+                                <div class="card__image-wrapper"><img src="#" id="previewHeroSmallImage" class="card__image disable" width="296" height="150"></div>
                                 <h3 id="cardTitle" class="card__title">New Post</h3>
                                 <h4 id="cardDescription" class="card__desc">Please, enter any description</h4>
                                 <div class="card__info">
-                                    <img src="/images/plug.png" id="cardPhoto" class="card__author-photo" width="26px" height="26px">
+                                    <img id="cardPhoto" src="images/plug.png" class="card__author-photo" width="26px" height="26px">
                                     <p id="cardAuthorName" class="card__author-name">Enter author name</p>
-                                    <p class="card__date">4/19/2023</p>
+                                    <p id="cardDate" class="card__date">4/19/2023</p>
                                 </div>
                             </div>
                         </div>
