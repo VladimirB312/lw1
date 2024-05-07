@@ -28,14 +28,14 @@
             </div>
             <label class="form__email-label">Email</label>
             <div class="form__email-wrapper">
-                <input type="email" name="email" class="form__email-field">
+                <input type="email" id="emailField" name="emailField" class="form__email-field">
                 <p class="form__email-error form__email-error_disabled">Email is required.</p>
                 <p class="form__email-valid-error form__email-valid-error_disabled">Incorrect email format. Correct format is ****@**.***</p>
             </div>
             <label class="form__password-label">Password</label>
             <div class="form__password-wrapper">
-                <input type="password" name="password" class="form__password-field">
-                <button type="button" class="form__password-view"></button>
+                <input type="password" id="passwordField" name="passwordField" class="form__password-field">
+                <button type="button" id="passwordView" class="form__password-view"></button>
                 <p class="form__password-error form__password-error_disabled">Password is required.</p>
             </div>
             <input type="submit" class="form__submit" value="Log In">

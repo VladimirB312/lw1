@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="static/styles/newpost.css">
+    <link rel="stylesheet" href="static/styles/stylenewpost.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Oxygen:wght@300;400;700&display=swap" rel="stylesheet">
@@ -42,16 +42,18 @@
             <div class="information__wrapper">
                 <form class="information__form post">
                     <label class="post__title-label">Title</label>
-                    <input type="text" class="post__title-field" placeholder="New Post">
-                    <label class="post__subscription-label">Short description</label>
-                    <input type="text" class="post__subscription-field" placeholder="Please, enter any description">
+                    <input type="text" id="titleField" class="post__title-field" placeholder="New Post" maxlength="50">
+                    <label class="post__description-label">Short description</label>
+                    <input type="text" id="descriptionField" class="post__description-field" placeholder="Please, enter any description"  maxlength="100">
                     <label class="post__author-name-label">Author name</label>
-                    <input type="text" class="post__author-name-field">
+                    <input type="text" id="authorNameField" class="post__author-name-field" maxlength="50">
                     <label class="post__author-photo-label">Author Photo</label>
                     <div class="post__author-photo-upload">
-                        <div class="post__author-photo-icon"></div>
-                        <label for="upload-photo-button" class="post__author-photo-upload-label">Upload</label>
-                        <input type="file" id="upload-photo-button" name="upload-photo" class="post__author-photo-upload-button">
+                        <img id="loadedAuthorPhoto" src="#" class="post__author-loaded-photo post__author-loaded-photo_disabled">
+                        <div id="photoIcon" class="post__author-photo-icon"></div>
+                        <label for="uploadAuhorPhotoButton" id="labelNew" class="post__author-photo-upload-label">Upload</label>
+                        <input type="file" id="uploadAuhorPhotoButton" name="upload-photo" class="post__author-photo-upload-button" onchange="previewAuthorPhoto()">
+                        <button type="button" id="removeButtonInField" class="post__author-photo-remove-button post__author-photo-remove-button_disabled">Remove</button> 
                     </div>
                     <label class="post__publish-date-label">Publish Date</label>
                     <input type="date" class="post__publish-date-field" value="2024-04-18">
@@ -83,8 +85,8 @@
                                     <div class="article-preview__tab-panel-dot"></div>
                                 </div>
                                 <div class="article-preview__page article">
-                                    <h4 class="article__title">New Post</h4>
-                                    <h5 class="article__desc">Please, enter any description</h5>
+                                    <h4 id="postTitle" class="article__title">New Post</h4>
+                                    <h5 id="postDescription" class="article__desc">Please, enter any description</h5>
                                     <div class="article__image"></div>
                                 </div>
                             </div>
@@ -95,11 +97,11 @@
                         <div class="card-preview__window">
                             <div class="card-preview__card card">
                                 <div class="card__image"></div>
-                                <h3 class="card__title">New Post</h3>
-                                <h4 class="card__desc">Please, enter any description</h4>
+                                <h3 id="cardTitle" class="card__title">New Post</h3>
+                                <h4 id="cardDescription" class="card__desc">Please, enter any description</h4>
                                 <div class="card__info">
-                                    <img src="/images/plug.png" class="card__author-photo" width="26px" height="26px">
-                                    <p class="card__author-name">Enter author name</p>
+                                    <img src="/images/plug.png" id="cardPhoto" class="card__author-photo" width="26px" height="26px">
+                                    <p id="cardAuthorName" class="card__author-name">Enter author name</p>
                                     <p class="card__date">4/19/2023</p>
                                 </div>
                             </div>
@@ -111,10 +113,11 @@
 
         <div class="content">
             <h2 class="content__caption">Content</h2>
-            <label class="content__text-label">Post content (plain text)</label>
-            <textarea class="content__text-area" placeholder="Type anything you want ..."></textarea>
+            <label for="contentText" class="content__text-label">Post content (plain text)</label>
+            <textarea id="contentText" class="content__text-area" placeholder="Type anything you want ..."></textarea>
         </div>
     </main>
+    <script src="newpost.js"></script>
 </body>
 
 </html>

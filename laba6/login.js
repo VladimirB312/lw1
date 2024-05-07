@@ -1,6 +1,6 @@
-let emailField = document.querySelector('.form__email-field')
-let passwordField = document.querySelector('.form__password-field')
-let viewPasswordButton = document.querySelector('.form__password-view')
+let emailField = document.getElementById('emailField')
+let passwordField = document.getElementById('passwordField')
+let viewPasswordButton = document.getElementById('passwordView')
 
 emailField.onchange = function () {
     if (emailField.value) {
