@@ -1,6 +1,12 @@
-let emailField = document.getElementById('emailField')
-let passwordField = document.getElementById('passwordField')
-let viewPasswordButton = document.getElementById('passwordView')
+const emailField = document.getElementById('emailField')
+const passwordField = document.getElementById('passwordField')
+const viewPasswordButton = document.getElementById('passwordView')
+const EMAIL_REGEXP = /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/iu;
+const errorValidateMessage = document.querySelector('.form__incorrect-error')
+const errorCheckMessage = document.querySelector('.form__check-fields-error')
+const errorEmailFormat = document.querySelector('.form__email-valid-error')
+const errorEmailEmpty = document.querySelector('.form__email-error')
+const errorPasswordEmpty = document.querySelector('.form__password-error')
 
 emailField.onchange = function () {
     if (emailField.value) {
@@ -27,14 +33,6 @@ viewPasswordButton.onclick = function () {
         passwordField.type = 'password'
     }
 }
-
-
-const EMAIL_REGEXP = /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/iu;
-let errorValidateMessage = document.querySelector('.form__incorrect-error')
-let errorCheckMessage = document.querySelector('.form__check-fields-error')
-let errorEmailFormat = document.querySelector('.form__email-valid-error')
-let errorEmailEmpty = document.querySelector('.form__email-error')
-let errorPasswordEmpty = document.querySelector('.form__password-error')
 
 function isEmailValid(value) {
     return EMAIL_REGEXP.test(value);
