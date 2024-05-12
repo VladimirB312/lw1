@@ -1,0 +1,137 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    color: #2E2E2E;
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box;    
+}
+
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.header-nav {
+    display: flex;
+    padding: 17px 10px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-nav__logo {
+    text-decoration: none;
+    color: #2E2E2E;
+    ;
+    padding: 3px 0 11px 10px;
+    font: 400 26px/26px "Lora", sans-serif;
+}
+
+.header-nav__menu-list {
+    display: flex;
+    flex-wrap: wrap;
+    list-style-type: none;
+}
+
+.header-nav__menu-link {
+    text-transform: uppercase;
+    font: 400 12px/20px "Oxygen", sans-serif;
+    color: #2E2E2E;
+    letter-spacing: 0.6px;
+    padding: 10px 20px;
+    text-decoration: none;
+}
+
+.title-block {
+    margin: 0 auto;
+    padding: 89px 0 113px 0;
+}
+
+.title-block__title {
+    padding-bottom: 20px;
+    font: 400 50px/51px "Lora", sans-serif;
+    letter-spacing: 2px;
+    text-align: center;
+}
+
+.title-block__subtitle {
+    color: #2E2E2EA1;
+    font: 400 17px/20px "Oxygen", sans-serif;
+    text-align: center;
+}
+
+.content {
+    margin-inline: auto;
+    background-color: #F7F7F7;
+}
+
+
+.content__image {
+    max-height: 498px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 3px;
+}
+
+.content__text {
+    padding: 140px 0 135px;
+    color: #101315;
+    margin-inline: auto;
+    font: 400 24px/35px "Oxygen", sans-serif;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+.content__text p {
+    margin-bottom: 20px;
+}
+
+.content__text p:last-child {
+    margin-bottom: 0;
+}
+
+/* FOOTER */
+.footer {
+    margin: 0 auto;
+    background-image: url(/static/images/footer.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.footer__background {
+    background-color: rgba(35, 47, 56, 0.6);
+}
+
+.footer__link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer__logo-image {
+    padding: 3px 0 5px 10px;
+    color: #ffffff;
+    font: 400 26px/26px "Lora", sans-serif;
+    text-align: left;
+    text-decoration: none;
+}
+
+.footer__menu-link {
+    text-transform: uppercase;
+    text-decoration: none;    
+    color: rgba(255, 255, 255, 0.6);
+    font: 400 12px/26px "Oxygen", sans-serif;
+    letter-spacing: 0.6px;
+    padding: 10px 10px;
+}
+
+.footer__menu-list {
+    display: flex;
+    flex-wrap: wrap;
+    list-style-type: none;
+    padding: 31px 10px 32px;
+}
