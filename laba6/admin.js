@@ -8,6 +8,11 @@ document.addEventListener("DOMContentLoaded", () => {
         cardHeroImage: '',
         postTextContent: '',
     }
+    
+    const postPreview = {
+        postTitle: document.getElementById('postTitle'),
+        cardTitle: document.getElementById('cardTitle')
+    }
 
     function readFileAsBase64(file, onLoad) {
         const reader = new FileReader();
@@ -22,19 +27,19 @@ document.addEventListener("DOMContentLoaded", () => {
     function handleInputTitle(event) {
         postData.title = titleField.value;
 
-        invalidatePostPreview();
+        rerenderPostPreview();
     }
 
     function handleInputDescription(event) {
         postData.description = descriptionField.value;
 
-        invalidatePostPreview();
+        rerenderPostPreview();
     }
 
     function handleInputAuthorName(event) {
         postData.authorName = authorNameField.value;
 
-        invalidatePostPreview();
+        rerenderPostPreview();
     }
 
     function handleChangeAuthorPhoto(event) {
@@ -45,7 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
             (base64) => {
                 postData.authorPhoto = base64;
 
-                invalidatePostPreview()
+                rerenderPostPreview()
             })
 
         loadedAuthorPhoto.classList.remove('post__author-loaded-photo_disabled');
@@ -63,7 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
         labelNew.textContent = buttonUploadText;
         removeAuthorPhotoButton.classList.add('post__author-photo-remove-button_disabled');
 
-        invalidatePostPreview();
+        rerenderPostPreview();
     }
 
 
@@ -75,8 +80,9 @@ document.addEventListener("DOMContentLoaded", () => {
             (base64) => {
                 postData.heroImage = base64;
 
-                invalidatePostPreview()
-            })
+                rerenderPostPreview()
+            }
+        )
 
 
         loadedHeroImage.classList.remove('disable');
@@ -92,7 +98,7 @@ document.addEventListener("DOMContentLoaded", () => {
         removeHeroImageButton.classList.add('disable');
         descHeroImageFormat.classList.remove('disable');
 
-        invalidatePostPreview();
+        rerenderPostPreview();
     }
 
     function handleChangeHeroSmallImage(event) {
@@ -103,7 +109,7 @@ document.addEventListener("DOMContentLoaded", () => {
             (base64) => {
                 postData.cardHeroImage = base64;
 
-                invalidatePostPreview()
+                rerenderPostPreview()
             })
 
         loadedHeroSmallImage.classList.remove('disable');
@@ -119,19 +125,19 @@ document.addEventListener("DOMContentLoaded", () => {
         removeHeroSmallImage.classList.add('disable');
         descHeroSmallImageFormat.classList.remove('disable');
 
-        invalidatePostPreview();
+        rerenderPostPreview();
     }
 
     function handleChangePublishDate(event) {
         postData.publishDate = dateField.value;
 
-        invalidatePostPreview();
+        rerenderPostPreview();
     }
 
     function handleChangeContentText(event) {
         postData.postTextContent = contentText.value;
 
-        invalidatePostPreview();
+        rerenderPostPreview();
     }
 
     function handlePublishPostButton(event) {
@@ -152,8 +158,7 @@ document.addEventListener("DOMContentLoaded", () => {
             publishErrorMessage.classList.remove('disable');
         }
 
-
-        invalidatePostPreview();
+        rerenderPostPreview();
     }
 
     const titleField = document.getElementById('titleField');
@@ -204,11 +209,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    function invalidatePostPreview() {
-        const postTitle = document.getElementById('postTitle')
-        const cardTitle = document.getElementById('cardTitle')
-        postTitle.textContent = postData.title;
-        cardTitle.textContent = postData.title
+    function rerenderPostPreview() {
+        postPreview.postTitle.textContent = postData.title;
+        postPreview.cardTitle.textContent = postData.title
 
         const postDescription = document.getElementById('postDescription')
         const cardDescription = document.getElementById('cardDescription')
@@ -255,7 +258,6 @@ document.addEventListener("DOMContentLoaded", () => {
         cardDatePreview.textContent = postData.publishDate;
     }
 
-
     initEventListeners()
-    invalidatePostPreview()
+    rerenderPostPreview()
 });

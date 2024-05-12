@@ -52,7 +52,7 @@
                         <img id="loadedAuthorPhoto" src="#" class="post__author-loaded-photo post__author-loaded-photo_disabled">
                         <div id="photoIcon" class="post__author-photo-icon"></div>
                         <label for="uploadAuhorPhotoButton" id="labelNew" class="post__author-photo-upload-label">Upload</label>
-                        <input type="file" id="uploadAuhorPhotoButton" name="upload-photo" class="post__author-photo-upload-button">
+                        <input type="file" id="uploadAuhorPhotoButton" name="upload-photo" class="post__author-photo-upload-button" accept="image/jpeg, image/png, image/gif">
                         <button type="button" id="removeButtonInField" class="post__author-photo-remove-button post__author-photo-remove-button_disabled">Remove</button>
                     </div>
                     <label class="post__publish-date-label">Publish Date</label>
@@ -63,7 +63,7 @@
                         <label for="heroImageField" id="labelImageField" class="post__hero-image-upload-label upload-area">
                             <p class="upload-area__text">Upload</p>
                         </label>
-                        <input type="file" id="heroImageField" name="hero-image" class="post__hero-image-field">
+                        <input type="file" id="heroImageField" name="hero-image" class="post__hero-image-field" accept="image/jpeg, image/png, image/gif">
                         <button type="button" id="removeHeroImage" class="post__hero-image-remove-button disable">Remove</button>
                         <p id="descHeroImageFormat" class="post__desc-image-format">Size up to 10mb. Format: png, jpeg, gif.</p>
                     </div>
@@ -73,7 +73,7 @@
                         <label for="heroSmallImageField" id="labelSmallImageField" class="post__hero-small-image-upload-label small-upload-area">
                             <p class="small-upload-area__text">Upload</p>
                         </label>
-                        <input type="file" id="heroSmallImageField" name="hero-small-image" class="post__hero-small-image-field">
+                        <input type="file" id="heroSmallImageField" name="hero-small-image" class="post__hero-small-image-field" accept="image/jpeg, image/png, image/gif">
                         <button type="button" id="removeHeroSmallImage" class="post__hero-small-image-remove-button disable">Remove</button>
                         <p id="descHeroSmallImageFormat" class="post__desc-small-image-format">Size up to 10mb. Format: png, jpeg, gif.</p>
                     </div>
@@ -119,6 +119,7 @@
             <h2 class="content__caption">Content</h2>
             <label for="contentText" class="content__text-label">Post content (plain text)</label>
             <textarea id="contentText" class="content__text-area" placeholder="Type anything you want ..."></textarea>
+            
         </div>
     </main>
     <script src="admin.js"></script>
