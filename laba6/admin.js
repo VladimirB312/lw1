@@ -2,16 +2,24 @@ document.addEventListener("DOMContentLoaded", () => {
     const postData = {
         title: '',
         description: '',
+        authorName: '',
         authorPhoto: '',
         publishDate: '',
         heroImage: '',
         cardHeroImage: '',
         postTextContent: '',
     }
-    
+
     const postPreview = {
         postTitle: document.getElementById('postTitle'),
-        cardTitle: document.getElementById('cardTitle')
+        cardTitle: document.getElementById('cardTitle'),
+        postDescription: document.getElementById('postDescription'),
+        cardDescription: document.getElementById('cardDescription'),
+        cardAuthorName: document.getElementById('cardAuthorName'),
+        cardPhoto: document.getElementById('cardAuthorPhoto'),
+        postPreviewHeroImage: document.getElementById('previewHeroImage'),
+        cardPreviewHeroImage: document.getElementById('previewHeroSmallImage'),
+        cardDatePreview: document.getElementById('cardDate'),
     }
 
     function readFileAsBase64(file, onLoad) {
@@ -26,18 +34,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function handleInputTitle(event) {
         postData.title = titleField.value;
+        titleError.classList.add('disable');
+        titleField.classList.remove('red-border-bottom');
 
         rerenderPostPreview();
     }
 
     function handleInputDescription(event) {
         postData.description = descriptionField.value;
+        descriptionError.classList.add('disable');
+        descriptionField.classList.remove('red-border-bottom');        
 
         rerenderPostPreview();
     }
 
     function handleInputAuthorName(event) {
         postData.authorName = authorNameField.value;
+        authorNameError.classList.add('disable');
+        authorNameField.classList.remove('red-border-bottom');       
 
         rerenderPostPreview();
     }
@@ -130,12 +144,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function handleChangePublishDate(event) {
         postData.publishDate = dateField.value;
+        publishDateError.classList.add('disable');
+        dateField.classList.remove('red-border-bottom');
 
         rerenderPostPreview();
     }
 
     function handleChangeContentText(event) {
         postData.postTextContent = contentText.value;
+        contentTextError.classList.add('disable');
+        contentText.classList.remove('red-border');
 
         rerenderPostPreview();
     }
@@ -143,22 +161,58 @@ document.addEventListener("DOMContentLoaded", () => {
     function handlePublishPostButton(event) {
         event.preventDefault();
 
-        if (postData.title.length > 5 &&
-            postData.description.length > 5 &&
-            postData.authorPhoto != '' &&
-            postData.heroImage != '' &&
-            postData.cardHeroImage != '' &&
-            postData.publishDate != '' &&
-            postData.postTextContent.length > 5
-        ) {
+        if (validatePostData()) {
             console.log(JSON.stringify(postData));
-            publishCompleteMessage.classList.remove('disable'); 
-            publishErrorMessage.classList.add('disable');           
+            publishCompleteMessage.classList.remove('disable');
+            publishErrorMessage.classList.add('disable');
         } else {
             publishErrorMessage.classList.remove('disable');
         }
-
+        validatePostData()
         rerenderPostPreview();
+    }
+
+    function validatePostData() {
+        let isValidPost = true;
+
+        if (postData.title.length < 5) {
+            isValidPost = false;
+            titleError.classList.remove('disable');
+            titleField.classList.add('red-border-bottom');
+        }
+
+        if (postData.description.length < 5) {
+            isValidPost = false;
+            descriptionError.classList.remove('disable');
+            descriptionField.classList.add('red-border-bottom');
+        }
+
+        if (postData.authorName.length < 5) {
+            isValidPost = false;
+            authorNameError.classList.remove('disable');
+            authorNameField.classList.add('red-border-bottom');
+        }
+
+        if (postData.publishDate === '') {
+            isValidPost = false;
+            publishDateError.classList.remove('disable');
+            dateField.classList.add('red-border-bottom');
+        }
+
+        if (postData.postTextContent.length < 5) {
+            isValidPost = false;
+            contentTextError.classList.remove('disable');
+            contentText.classList.add('red-border');
+        }
+
+        if (postData.authorPhoto === '' ||
+            postData.heroImage === '' ||
+            postData.cardHeroImage === ''
+        ) {
+            isValidPost = false; 
+        }
+
+        return isValidPost;
     }
 
     const titleField = document.getElementById('titleField');
@@ -193,6 +247,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const publishCompleteMessage = document.getElementById('publishCompleteMessage');
     const publishErrorMessage = document.getElementById('publishErrorMessage');
 
+    //константы для подсветки ошибок   
+    const titleError = document.getElementById('titleError');
+    const descriptionError = document.getElementById('descriptionError');
+    const authorNameError = document.getElementById('authorNameError');
+    const publishDateError = document.getElementById('publishDateError');
+    const contentTextError = document.getElementById('contentTextError');
+
     function initEventListeners() {
         titleField.addEventListener('input', handleInputTitle);
         descriptionField.addEventListener('input', handleInputDescription);
@@ -204,7 +265,7 @@ document.addEventListener("DOMContentLoaded", () => {
         uploadHeroSmallImageButton.addEventListener('change', handleChangeHeroSmallImage);
         removeHeroSmallImage.addEventListener('click', handleRemoveHeroSmallImage);
         dateField.addEventListener('change', handleChangePublishDate);
-        contentText.addEventListener('change', handleChangeContentText);
+        contentText.addEventListener('input', handleChangeContentText);
         publishButton.addEventListener('click', handlePublishPostButton);
     }
 
@@ -213,49 +274,39 @@ document.addEventListener("DOMContentLoaded", () => {
         postPreview.postTitle.textContent = postData.title;
         postPreview.cardTitle.textContent = postData.title
 
-        const postDescription = document.getElementById('postDescription')
-        const cardDescription = document.getElementById('cardDescription')
-        postDescription.textContent = postData.description;
-        cardDescription.textContent = postData.description;
+        postPreview.postDescription.textContent = postData.description;
+        postPreview.cardDescription.textContent = postData.description;
 
-        const cardAuthorName = document.getElementById('cardAuthorName');
-        cardAuthorName.textContent = postData.authorName;
-
-        const cardPhoto = document.getElementById('cardAuthorPhoto');
+        postPreview.cardAuthorName.textContent = postData.authorName;
 
         if (postData.authorPhoto != '') {
-            cardPhoto.style.backgroundImage = 'url(' + postData.authorPhoto + ')';
+            postPreview.cardPhoto.style.backgroundImage = 'url(' + postData.authorPhoto + ')';
             loadedAuthorPhoto.src = postData.authorPhoto;
         } else {
-            cardPhoto.style.backgroundImage = 'none';
+            postPreview.cardPhoto.style.backgroundImage = 'none';
             loadedAuthorPhoto.src = '#';
             uploadAuhorPhotoButton.value = '';
         }
 
-        const postPreviewHeroImage = document.getElementById('previewHeroImage');
-
         if (postData.heroImage != '') {
-            postPreviewHeroImage.style.backgroundImage = 'url(' + postData.heroImage + ')';
+            postPreview.postPreviewHeroImage.style.backgroundImage = 'url(' + postData.heroImage + ')';
             loadedHeroImage.src = postData.heroImage;
         } else {
-            postPreviewHeroImage.style.backgroundImage = 'none';
+            postPreview.postPreviewHeroImage.style.backgroundImage = 'none';
             loadedHeroImage.src = '#';
             uploadHeroImageButton.value = '';
         }
 
-        const cardPreviewHeroImage = document.getElementById('previewHeroSmallImage');
-
         if (postData.cardHeroImage != '') {
-            cardPreviewHeroImage.style.backgroundImage = 'url(' + postData.cardHeroImage + ')';
+            postPreview.cardPreviewHeroImage.style.backgroundImage = 'url(' + postData.cardHeroImage + ')';
             loadedHeroSmallImage.src = postData.cardHeroImage;
         } else {
-            cardPreviewHeroImage.style.backgroundImage = 'none';
+            postPreview.cardPreviewHeroImage.style.backgroundImage = 'none';
             loadedHeroSmallImage.src = '#';
             uploadHeroSmallImageButton.value = '';
         }
 
-        const cardDatePreview = document.getElementById('cardDate');
-        cardDatePreview.textContent = postData.publishDate;
+        postPreview.cardDatePreview.textContent = postData.publishDate;
     }
 
     initEventListeners()

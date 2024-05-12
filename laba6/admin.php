@@ -41,12 +41,21 @@
             <h2 class="information__title">Main Information</h2>
             <div class="information__wrapper">
                 <form id="main-form" class="information__form post">
-                    <label class="post__title-label">Title</label>
-                    <input type="text" id="titleField" class="post__title-field" placeholder="New Post" maxlength="50" required>
-                    <label class="post__description-label">Short description</label>
-                    <input type="text" id="descriptionField" class="post__description-field" placeholder="Please, enter any description" maxlength="100" required>
-                    <label class="post__author-name-label">Author name</label>
-                    <input type="text" id="authorNameField" class="post__author-name-field" maxlength="50" required>
+                    <label for="titleField" class="post__title-label">Title</label>
+                    <div class="post__title-field-wrapper">
+                        <input type="text" id="titleField" class="post__title-field" placeholder="New Post" maxlength="50" required>
+                        <p id="titleError" class="post__title-field-error disable">Title is required</p>
+                    </div>
+                    <label for="descriptionField" class="post__description-label">Short description</label>
+                    <div class="post__description-field-wrapper">
+                        <input type="text" id="descriptionField" class="post__description-field" placeholder="Please, enter any description" maxlength="100" required>
+                        <p id="descriptionError" class="post__description-field-error disable">Short description is required</p>
+                    </div>
+                    <label for="authorNameField" class="post__author-name-label">Author name</label>
+                    <div class="post__author-name-field-wrapper">
+                        <input type="text" id="authorNameField" class="post__author-name-field" maxlength="50" required>
+                        <p id="authorNameError" class="post__author-name-field-error disable">Author name is required</p>
+                    </div>
                     <label class="post__author-photo-label">Author Photo</label>
                     <div class="post__author-photo-upload">
                         <img id="loadedAuthorPhoto" src="#" class="post__author-loaded-photo post__author-loaded-photo_disabled">
@@ -56,7 +65,10 @@
                         <button type="button" id="removeButtonInField" class="post__author-photo-remove-button post__author-photo-remove-button_disabled">Remove</button>
                     </div>
                     <label class="post__publish-date-label">Publish Date</label>
-                    <input type="date" id="dateField" class="post__publish-date-field" placeholder="2024-04-18">
+                    <div class="post__publish-date-field-wrapper">
+                        <input type="date" id="dateField" class="post__publish-date-field" placeholder="2024-04-18">
+                        <p id="publishDateError" class="post__publish-date-error disable">Publish date is required</p>
+                    </div>
                     <label class="post__hero-image-label">Hero Image</label>
                     <div class="post__hero-image-upload">
                         <img src="#" id="heroImage" class="post-hero-image-loaded disable" width="560" height="160">
@@ -119,7 +131,7 @@
             <h2 class="content__caption">Content</h2>
             <label for="contentText" class="content__text-label">Post content (plain text)</label>
             <textarea id="contentText" class="content__text-area" placeholder="Type anything you want ..."></textarea>
-            
+            <p id="contentTextError" class="content__text-area-error disable">Post content is required</p>
         </div>
     </main>
     <script src="admin.js"></script>

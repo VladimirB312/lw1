@@ -14,7 +14,9 @@ body {
   
 }
 
-textarea:focus, input[type="text"]:focus{
+textarea:focus, 
+input[type="text"]:focus,
+input[type="date"]:focus {
     outline: none;
     background: #F7F7F7; 
 }
@@ -159,15 +161,32 @@ textarea:focus, input[type="text"]:focus{
     margin-bottom: 5px;  
 }
 
+.post__title-field-wrapper,
+.post__description-field-wrapper,
+.post__author-name-field-wrapper,
+.post__publish-date-field-wrapper {
+    margin-bottom: 40px;    
+}
+
 .post__title-field,
 .post__description-field,
 .post__author-name-field,
 .post__publish-date-field {
+    width: 100%;
     font: 16px/24px "Oxygen", sans-serif; 
     border: none;
+    padding: 8px 4px;    
     border-bottom: 1px solid #2E2E2E;
-    padding: 8px 4px;
-    margin-bottom: 40px;
+}
+
+.post__title-field-error,
+.post__description-field-error,
+.post__author-name-field-error,
+.post__publish-date-error,
+.content__text-area-error {
+    margin-top: 5px;
+    font: 12px/16px "Oxygen", sans-serif;
+    color:  #E86961;    
 }
 
 .post__author-name-field {
@@ -368,7 +387,7 @@ textarea:focus, input[type="text"]:focus{
 }
 
 .card__image {
-    width: 296px;
+    width: 294px;
     height: 150px;
     background-color: #F7F7F7;
     margin-bottom: 14px;
@@ -522,19 +541,6 @@ textarea:focus, input[type="text"]:focus{
 
 .disable {
     display: none;
-}
-
-.input-error {
-    position: relative;
-}
-
-.input-error::after {
-    position: absolute;
-    content: '123123123';
-    left: 0;
-    top: 0;
-    font: 12px/16px "Oxygen", sans-serif;
-    color:  #E86961;
 }
 
 .red-border-bottom {
