@@ -13,17 +13,15 @@ $data = getJsonData();
 if ($method === 'POST' && $data) {
   if (!isset($data['title']) || strlen($data['title']) < 3)
     $errors[] = 'Invalid or missing title.';
-  if (!isset($data['subtitle']) || strlen($data['subtitle']) < 3)
-    $errors[] = 'Invalid or missing subtitle.';
-  if (!isset($data['content']) || strlen($data['content']) < 5)
-    $errors[] = 'Invalid or missing content.';
-  if (!isset($data['author_name']) || strlen($data['author_name']) < 5)
+  if (!isset($data['description']) || strlen($data['description']) < 3)
+    $errors[] = 'Invalid or missing description.';
+  if (!isset($data['postTextContent']) || strlen($data['postTextContent']) < 5)
+    $errors[] = 'Invalid or missing postTextContent.';
+  if (!isset($data['authorName']) || strlen($data['authorName']) < 5)
     $errors[] = 'Invalid or missing author_name.';
-  if (!isset($data['author_photo_url']) || strlen($data['author_photo_url']) < 5)
-    $errors[] = 'Invalid or missing author_photo_url.';
-  if (!isset($data['author_photo_alt']) || strlen($data['author_photo_alt']) < 2)
-    $errors[] = 'Invalid or missing author_photo_alt.';
-  if (!isset($data['image']) || strlen($data['image']) < 2)
+  if (!isset($data['publishDate']))
+    $errors[] = 'Invalid or missing publish date.';
+  if (!isset($data['heroImage']) || strlen($data['heroImage']) < 2)
     $errors[] = 'Invalid or missing image.';
   if (!isset($data['sticker']))
     $errors[] = 'Invalid or missing sticker.';
@@ -33,33 +31,38 @@ if ($method === 'POST' && $data) {
     $errors[] = 'Invalid or missing recent.';
 
   if (empty($errors)) {
-    $post_id = generate_uuid();
-    $publish_date = date('Y-m-d H:i:s', time());
-    $image_url = saveImage($data['image'], $post_id);
+    $postId = generateUuid();
+    $publishDate = date("Y-m-d H:i:s", strtotime($data['publishDate']));
+    $imageUrl = saveImage($data['heroImage'], $postId);
 
-    if(!$image_url) {
+    if(!$imageUrl) {
       $errors[] = 'error parse image'; 
     } 
 
+    $authorPhotoUrl = saveImage($data['authorPhoto'], $data['authorName']);
+
+    if(!$authorPhotoUrl) {
+      $errors[] = 'error parse author photo'; 
+    } 
     
     $query = "INSERT INTO post
     SET 
-      post_id = '$post_id',
+      post_id = '$postId',
       title = '{$data['title']}',
-      subtitle = '{$data['subtitle']}',
-      content = '{$data['content']}',
-      author_name = '{$data['author_name']}',
-      author_photo_url = '{$data['author_photo_url']}',
-      author_photo_alt = '{$data['author_photo_alt']}',
-      publish_date = '{$publish_date}',    
-      image_alt = '{$data['image_alt']}',
-      image_url = '{$image_url}',
+      subtitle = '{$data['description']}',
+      content = '{$data['postTextContent']}',
+      author_name = '{$data['authorName']}',
+      author_photo_url = '{$authorPhotoUrl}',
+      author_photo_alt = '{$data['authorName']}',
+      publish_date = '{$publishDate}',    
+      image_alt = '{$data['heroImageAlt']}',
+      image_url = '{$imageUrl}',
       sticker = '{$data['sticker']}',
       featured = {$data['featured']}, 
       recent = {$data['recent']}";
 
     
-    if ($image_url && $conn->query($query)) {
+    if ($imageUrl && $conn->query($query)) {
       echo "Данные успешно добавлены <br/>";
     } else {
       echo "Ошибка: " . $conn->error;

@@ -6,8 +6,12 @@ document.addEventListener("DOMContentLoaded", () => {
         authorPhoto: '',
         publishDate: '',
         heroImage: '',
+        heroImageAlt: '',
         cardHeroImage: '',
         postTextContent: '',
+        featured: 0,
+        recent: 1,
+        sticker: '',
     }
 
     const postPreview = {
@@ -161,14 +165,31 @@ document.addEventListener("DOMContentLoaded", () => {
         event.preventDefault();
 
         if (validatePostData()) {
-            console.log(JSON.stringify(postData));
+            postJSON(postData);
             publishCompleteMessage.classList.remove('disable');
-            publishErrorMessage.classList.add('disable');            
+            publishErrorMessage.classList.add('disable');
         } else {
-            publishErrorMessage.classList.remove('disable');            
+            publishErrorMessage.classList.remove('disable');
         }
         validatePostData()
         rerenderPostPreview();
+    }
+
+    async function postJSON(data) {
+        try {
+            const response = await fetch("/api.php", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(data),
+            });
+
+            const result = await response.json();
+            console.log("Success:", result);
+        } catch (error) {
+            console.error("Error:", error);
+        }
     }
 
     function validatePostData() {

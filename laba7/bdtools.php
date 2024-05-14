@@ -45,36 +45,36 @@ function getPostFromDB(mysqli $conn, $post_id)
   return null;
 }
 
-function saveImage(string $imageBase64, string $post_id): string
+function saveImage(string $imageBase64, string $postId): string
 {
   $imageBase64Array = explode(';base64,', $imageBase64);
   $imgExtention = str_replace('data:image/', '', $imageBase64Array[0]);
   $imageDecoded = base64_decode($imageBase64Array[1]);
   try {
-    saveFile("images/{$post_id}.{$imgExtention}", $imageDecoded);
+    saveFile("images/{$postId}.{$imgExtention}", $imageDecoded);
   } catch (\Throwable $th) {
     echo $th;
     return '';
   }
 
-  $image_url = "./static/images/{$post_id}.{$imgExtention}";
-  return $image_url;
+  $imageUrl = "./static/images/{$postId}.{$imgExtention}";
+  return $imageUrl;
 }
 
-function saveAuthorPhoto(string $imageBase64, string $author_name): string
+function saveAuthorPhoto(string $imageBase64, string $authorName): string
 {
   $imageBase64Array = explode(';base64,', $imageBase64);
   $imgExtention = str_replace('data:image/', '', $imageBase64Array[0]);
   $imageDecoded = base64_decode($imageBase64Array[1]);
   try {
-    saveFile("images/{$author_name}.{$imgExtention}", $imageDecoded);
+    saveFile("images/{$authorName}.{$imgExtention}", $imageDecoded);
   } catch (\Throwable $th) {
     echo $th;
     return '';
   }
 
-  $image_url = "./static/images/{$author_name}.{$imgExtention}";
-  return $image_url;
+  $imageUrl = "./static/images/{$authorName}.{$imgExtention}";
+  return $imageUrl;
 }
 
 function saveFile(string $file, string $data): void
@@ -102,7 +102,7 @@ function getJsonData()
   return $data ?? null;
 }
 
-function generate_uuid()
+function generateUuid()
 {
   return sprintf(
     '%04x%04x-%04x-%04x-%04x-%04x%04x%04x',
