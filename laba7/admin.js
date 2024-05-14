@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function handleInputTitle(event) {
         postData.title = titleField.value;
-        titleError.classList.add('disable');
+        titleError.classList.add('hidden');
         titleField.classList.remove('red-border-bottom');
 
         rerenderPostPreview();
@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function handleInputDescription(event) {
         postData.description = descriptionField.value;
-        descriptionError.classList.add('disable');
+        descriptionError.classList.add('hidden');
         descriptionField.classList.remove('red-border-bottom');
 
         rerenderPostPreview();
@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function handleInputAuthorName(event) {
         postData.authorName = authorNameField.value;
-        authorNameError.classList.add('disable');
+        authorNameError.classList.add('hidden');
         authorNameField.classList.remove('red-border-bottom');
 
         rerenderPostPreview();
@@ -71,20 +71,20 @@ document.addEventListener("DOMContentLoaded", () => {
                 rerenderPostPreview()
             })
 
-        loadedAuthorPhoto.classList.remove('post__author-loaded-photo_disabled');
-        photoIcon.classList.add('post__author-photo-icon_disabled');
+        loadedAuthorPhoto.classList.remove('hidden');
+        photoIcon.classList.add('hidden');
         labelNew.classList.add('post__author-photo-upload-label-new');
         labelNew.textContent = buttonUploadNewText;
-        removeAuthorPhotoButton.classList.remove('post__author-photo-remove-button_disabled');
+        removeAuthorPhotoButton.classList.remove('hidden');
     }
 
     function handleRemoveAuthorPhoto(event) {
         postData.authorPhoto = '';
-        loadedAuthorPhoto.classList.add('post__author-loaded-photo_disabled');
-        photoIcon.classList.remove('post__author-photo-icon_disabled');
+        loadedAuthorPhoto.classList.add('hidden');
+        photoIcon.classList.remove('hidden');
         labelNew.classList.remove('post__author-photo-upload-label-new');
         labelNew.textContent = buttonUploadText;
-        removeAuthorPhotoButton.classList.add('post__author-photo-remove-button_disabled');
+        removeAuthorPhotoButton.classList.add('hidden');
 
         rerenderPostPreview();
     }
@@ -102,18 +102,18 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         )
 
-        loadedHeroImage.classList.remove('disable');
+        loadedHeroImage.classList.remove('hidden');
         labelImageField.classList.add('upload-area_loaded');
-        removeHeroImageButton.classList.remove('disable');
-        descHeroImageFormat.classList.add('disable');
+        removeHeroImageButton.classList.remove('hidden');
+        descHeroImageFormat.classList.add('hidden');
     }
 
     function handleRemoveHeroImage(event) {
         postData.heroImage = '';
-        loadedHeroImage.classList.add('disable');
+        loadedHeroImage.classList.add('hidden');
         labelImageField.classList.remove('upload-area_loaded');
-        removeHeroImageButton.classList.add('disable');
-        descHeroImageFormat.classList.remove('disable');
+        removeHeroImageButton.classList.add('hidden');
+        descHeroImageFormat.classList.remove('hidden');
 
         rerenderPostPreview();
     }
@@ -129,25 +129,25 @@ document.addEventListener("DOMContentLoaded", () => {
                 rerenderPostPreview()
             })
 
-        loadedHeroSmallImage.classList.remove('disable');
+        loadedHeroSmallImage.classList.remove('hidden');
         labelSmallImageField.classList.add('upload-area_loaded');
-        removeHeroSmallImage.classList.remove('disable');
-        descHeroSmallImageFormat.classList.add('disable');
+        removeHeroSmallImage.classList.remove('hidden');
+        descHeroSmallImageFormat.classList.add('hidden');
     }
 
     function handleRemoveHeroSmallImage(event) {
         postData.cardHeroImage = '';
-        loadedHeroSmallImage.classList.add('disable');
+        loadedHeroSmallImage.classList.add('hidden');
         labelSmallImageField.classList.remove('upload-area_loaded');
-        removeHeroSmallImage.classList.add('disable');
-        descHeroSmallImageFormat.classList.remove('disable');
+        removeHeroSmallImage.classList.add('hidden');
+        descHeroSmallImageFormat.classList.remove('hidden');
 
         rerenderPostPreview();
     }
 
     function handleChangePublishDate(event) {
         postData.publishDate = dateField.value;
-        publishDateError.classList.add('disable');
+        publishDateError.classList.add('hidden');
         dateField.classList.remove('red-border-bottom');
 
         rerenderPostPreview();
@@ -155,7 +155,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function handleChangeContentText(event) {
         postData.postTextContent = contentText.value;
-        contentTextError.classList.add('disable');
+        contentTextError.classList.add('hidden');
         contentText.classList.remove('red-border');
 
         rerenderPostPreview();
@@ -166,10 +166,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (validatePostData()) {
             postJSON(postData);
-            publishCompleteMessage.classList.remove('disable');
-            publishErrorMessage.classList.add('disable');
+            publishCompleteMessage.classList.remove('hidden');
+            publishErrorMessage.classList.add('hidden');
         } else {
-            publishErrorMessage.classList.remove('disable');
+            publishErrorMessage.classList.remove('hidden');
         }
         validatePostData()
         rerenderPostPreview();
@@ -197,31 +197,31 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (postData.title.length < 5) {
             isValidPost = false;
-            titleError.classList.remove('disable');
+            titleError.classList.remove('hidden');
             titleField.classList.add('red-border-bottom');
         }
 
         if (postData.description.length < 5) {
             isValidPost = false;
-            descriptionError.classList.remove('disable');
+            descriptionError.classList.remove('hidden');
             descriptionField.classList.add('red-border-bottom');
         }
 
         if (postData.authorName.length < 5) {
             isValidPost = false;
-            authorNameError.classList.remove('disable');
+            authorNameError.classList.remove('hidden');
             authorNameField.classList.add('red-border-bottom');
         }
 
         if (postData.publishDate === '') {
             isValidPost = false;
-            publishDateError.classList.remove('disable');
+            publishDateError.classList.remove('hidden');
             dateField.classList.add('red-border-bottom');
         }
 
         if (postData.postTextContent.length < 5) {
             isValidPost = false;
-            contentTextError.classList.remove('disable');
+            contentTextError.classList.remove('hidden');
             contentText.classList.add('red-border');
         }
 

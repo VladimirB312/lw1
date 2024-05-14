@@ -465,25 +465,13 @@ input[type="date"]:focus {
     border: 1px solid #EAEAEA;
 }
 
-
 /* Блок поля фото автора после нажатия upload */
-.post__author-loaded-photo_disabled {
-    display: none;
-}
-
-.post__author-photo-icon_disabled {
-    display: none;
-}
 
 .post__author-photo-upload-label-new {
     background: url(/images/camera-black.svg) no-repeat center; 
     background-position: left;
     padding-left: 32px;
     margin-right: 16px;   
-}
-
-.post__author-photo-remove-button_disabled {
-    visibility: hidden;
 }
 
 /*Для картинок hero и карточки*/
@@ -493,7 +481,6 @@ input[type="date"]:focus {
     margin-bottom: 12px;
     object-fit: cover;
 }
-
 
 .post__hero-small-image-loaded {
     display: block;
@@ -529,7 +516,6 @@ input[type="date"]:focus {
     padding-left: 32px;
 }
 
-
 .post__hero-small-image-remove-button {
     display: inline-block;
     border: none;
@@ -539,7 +525,7 @@ input[type="date"]:focus {
     padding-left: 32px;       
 }
 
-.disable {
+.hidden {
     display: none;
 }
 
