@@ -57,6 +57,7 @@ $mostRecentTitle = 'Most Recent';
   <?php
   include 'footer.php';
   ?>
+  <script src="burger.js"></script>
 </body>
 
 </html>

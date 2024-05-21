@@ -13,9 +13,9 @@ if (!$post_id) {
 }
 
 $post = getPostFromDB($conn, $post_id);
-if (!$post) {  
+if (!$post) {
   header("Location: /404.php");
-  return;  
+  return;
 }
 
 $post['content'] = explode("\n", $post['content']);
@@ -56,6 +56,7 @@ $post['content'] = explode("\n", $post['content']);
   <?php
   include 'footer.php';
   ?>
+  <script src="burger.js"></script>
 </body>
 
 </html>
