@@ -1,0 +1,167 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    color: #2E2E2E;
+    font: 400 16px/24px "Oxygen", sans-serif;
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box;
+    min-height: 100vh;
+    background: url(/images/admin_background.png) center no-repeat;
+    background-size: cover;
+}
+
+.container {
+    margin: 0 auto;
+    padding: 120px 20px;
+    max-width: 1220px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.logo {
+    padding: 13px 50px 60px 100px;
+}
+
+.logo__image {
+    margin-bottom: 16px;
+    display: block;
+}
+
+.logo__caption {
+    padding-left: 13px;
+    font: 17px/25px "Oxygen", sans-serif;
+    color: #FFFFFF;
+}
+
+.form {
+    padding: 56px 40px 164px 40px;
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    width: 480px;
+    border-radius: 3px;
+}
+
+.form__title {
+    font: 34px/40px "Lora", sans-serif;
+    margin-bottom: 50px;
+}
+
+
+.form__incorrect-error,
+.form__check-fields-error
+ {
+    font: 14px/20px "Oxygen", sans-serif;
+    padding: 10px 12px 13px 46px;
+    margin-bottom: 40px;
+    height: 44px;
+    background-color: #FFEBEA;
+    background-image: url("/images/alert-circle.svg");
+    background-position: 14px center;
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+    border-left: 2px solid #E86961;
+    border-radius: 5px;
+}
+
+.form__email-label,
+.form__password-label {
+    font: 12px/16px "Oxygen", sans-serif;  
+    color: #7A7A7A;
+    margin-bottom: 5px;  
+}
+
+.form__email-field,
+.form__password-field {
+    font: 16px/24px "Oxygen", sans-serif;
+    padding: 8px 4px;
+    padding-right: 48px;
+    height: 40px;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #EAEAEA;
+}
+
+.form__email-field:focus, 
+.form__password-field:focus {
+    background-color: #F7F7F7;
+    outline: 0;
+    border: none;
+    border-radius: 5px 5px 0px 0px;
+    border-bottom: 1px solid #2E2E2E;
+}
+
+.form__email-field_gray,
+.form__password-field_gray {
+    background-color: #F7F7F7;
+}
+
+.form__email-wrapper {
+    margin-bottom: 40px;
+}
+
+.form__password-wrapper{
+    position: relative;    
+    margin-bottom: 40px;
+}
+
+.form__password-view {
+    position: absolute;
+    top: 8px;
+    right: 4px;
+    content: '';
+    border: none;
+    padding: 4px 1px;
+    width: 24px;
+    height: 24px;
+    background: url(/images/eye.svg) center no-repeat;
+    background-size: contain;
+}
+
+.form__password-view_on {
+    background: url(/images/eye-off.svg) center no-repeat;    
+}
+
+.form__submit {
+    font: 16px/24px "Oxygen", sans-serif;
+    color: #FFFFFF;
+    padding: 12px 12px;
+    width: 93px;
+    height: 48px;      
+    background-color: #DD783F;
+    border: none;
+    border-radius: 3px;
+}
+
+.form__submit_disable {
+    background-color: rgb(214, 173, 97);
+}
+
+/* Ошибки */
+
+.form__email-error,
+.form__email-valid-error,
+.form__password-error {
+    margin-top: 5px;
+    font: 12px/16px "Oxygen", sans-serif;
+    color:  #E86961;
+}
+
+.form__field-red-border {
+    border-bottom: 1px solid #E86961;
+}
+
+.form__incorrect-error_disabled,
+.form__check-fields-error_disabled,
+.form__email-error_disabled,
+.form__password-error_disabled,
+.form__email-valid-error_disabled {
+    display: none;
+}
