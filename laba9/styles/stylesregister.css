@@ -165,3 +165,43 @@ body {
 .form__email-valid-error_disabled {
     display: none;
 }
+
+@media screen and (max-width:1024px) {
+    .container {
+        flex-direction: column;
+        padding-top: 60px;
+    }
+
+    .logo {
+        padding-left: 50px;
+        padding-bottom: 35px;
+    }
+}
+
+@media screen and (max-width:768px) {
+    .container {
+        padding-top: 30px;
+    }  
+    
+    .logo {
+        padding-bottom: 25px;
+    }
+
+    .form {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width:480px) {
+    .container {
+        padding-top: 20px;
+    }  
+    
+    .logo {
+        padding-bottom: 20px;
+    }
+
+    .form {
+        width: 100%;
+    }
+}

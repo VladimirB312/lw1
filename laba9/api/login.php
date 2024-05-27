@@ -1,6 +1,6 @@
 <?php
 require_once '../bdtools.php';
-require_once 'functions.php';
+require_once 'authBySession.php';
 
 $conn = createDBConnection();
 $method = $_SERVER['REQUEST_METHOD'];
@@ -9,8 +9,8 @@ $salt = 'Pass';
 
 try {
     if ($method === 'POST' && $data) {
-        $email = $data['email'] ?? null;
-        $password = $data['password'] ?? null;
+        $email = trim($conn->real_escape_string($data['email'])) ?? null;
+        $password = trim($conn->real_escape_string($data['password'])) ?? null;
 
         if (strlen($password) < 5) {            
             throw new Error('Короткий пароль');
@@ -41,5 +41,6 @@ try {
 $userId = $userData['user_id'];
 
 $_SESSION['user_id'] = $userId;
+$_SESSION['avatarLetter'] = strtoupper(substr($email, 0, 1));
 
 header('Location: ../admin.php');

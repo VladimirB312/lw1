@@ -1,5 +1,8 @@
 <?php
 include 'bdtools.php';
+require_once 'api/authBySession.php';
+
+checkAuth();
 
 $conn = createDBConnection();
 
@@ -44,6 +47,10 @@ if ($method === 'POST' && $data) {
     if(!$authorPhotoUrl) {
       $errors[] = 'error parse author photo'; 
     } 
+
+    foreach ($data as $key => $value) {
+      $value = $conn->real_escape_string($value);
+    }
     
     $query = "INSERT INTO post
     SET 

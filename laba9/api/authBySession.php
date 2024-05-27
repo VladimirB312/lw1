@@ -25,3 +25,7 @@ function logout()
     header('Location: ../login.php');
 }
 
+function avatarLetter() 
+{    
+    return $_SESSION['avatarLetter'] ?? 'N';    
+}

@@ -1,5 +1,6 @@
 <?php
-require_once 'api/functions.php';
+require_once 'api/authBySession.php';
+
 checkAuth();
 ?>
 <!DOCTYPE html>
@@ -20,7 +21,7 @@ checkAuth();
         <div class="menu">
             <img src="images/admin_logo.svg" width="132" height="26" class="menu__logo" alt="Logo">
             <div class="menu__list">
-                <a href="#" class="menu__profile">N</a>
+                <a href="#" id="avatarLetter" class="menu__profile"><?= avatarLetter() ?></a>
                 <button type="button" id="logoutButton" class="menu__logout"><img src="images/log-out.svg" width="24" height="24" class="menu__logout-image" alt="Logout"></a>
             </div>
     </header>

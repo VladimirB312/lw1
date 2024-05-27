@@ -260,6 +260,14 @@ document.addEventListener("DOMContentLoaded", () => {
         logout();
     }
 
+    function randomColor() {
+        return Math.floor(Math.random() * 255) + 1;
+    }
+
+    function avatarBackground() {       
+        avatarLetter.style.backgroundColor = 'rgb(' + `${randomColor()}, ${randomColor()}, ${randomColor()}` + ')';        
+    }
+
     const titleField = document.getElementById('titleField');
     const descriptionField = document.getElementById('descriptionField');
     const authorNameField = document.getElementById('authorNameField');
@@ -293,6 +301,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const publishErrorMessage = document.getElementById('publishErrorMessage');
 
     const logoutButton = document.getElementById('logoutButton');
+    const avatarLetter = document.getElementById('avatarLetter');    
 
     //константы для подсветки ошибок   
     const titleError = document.getElementById('titleError');
@@ -355,7 +364,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
         postPreview.cardDatePreview.textContent = postData.publishDate;
     }
-
+    
+    avatarBackground()
     initEventListeners()
     rerenderPostPreview()
 });

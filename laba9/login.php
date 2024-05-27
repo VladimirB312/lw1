@@ -1,5 +1,5 @@
 <?php
-require_once 'api/functions.php';
+require_once 'api/authBySession.php';
 
 checkGuest();
 ?>
