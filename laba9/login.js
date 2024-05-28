@@ -55,13 +55,13 @@ document.addEventListener("DOMContentLoaded", () => {
             passwordValid = false;
         }
 
-        if (emailEmpty || passwordEmpty) {
+        if ((emailEmpty && passwordEmpty) || (!emailValid && !passwordValid)) {
             errorCheckMessage.classList.remove('form__check-fields-error_disabled');
 
             return isValidPost;
         }
 
-        if (!emailValid || !passwordValid) {
+        if (!isValidPost) {
             errorValidateMessage.classList.remove('form__incorrect-error_disabled');
 
             return isValidPost;    

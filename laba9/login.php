@@ -43,7 +43,7 @@ checkGuest();
                 <button type="button" id="passwordView" class="form__password-view"></button>
                 <p class="form__password-error form__password-error_disabled">Password is required.</p>
             </div>
-            <input type="submit" id="loginButton" class="form__submit" value="Log In">
+            <input type="submit" id="loginButton" class="form__submit" class="form__submit form__submit_disable" value="Log In" disabled>
         </form>
     </main>
     <script src="login.js"></script>

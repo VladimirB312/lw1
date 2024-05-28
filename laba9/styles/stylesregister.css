@@ -140,8 +140,12 @@ body {
     border-radius: 3px;
 }
 
+.form__submit:active {
+    scale: 0.87;
+}
+
 .form__submit_disable {
-    background-color: rgb(214, 173, 97);
+    opacity: 0.8;
 }
 
 /* Ошибки */

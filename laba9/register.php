@@ -34,7 +34,7 @@ checkGuest();
             </div>
             <label class="form__email-label">Email</label>
             <div class="form__email-wrapper">
-                <input type="email" id="emailField" name="emailField" class="form__email-field">                
+                <input type="email" id="emailField" name="emailField" class="form__email-field">
                 <p class="form__email-error form__email-error_disabled">Email is required.</p>
                 <p class="form__email-valid-error form__email-valid-error_disabled">Incorrect email format. Correct format is ****@**.***</p>
             </div>
@@ -44,10 +44,11 @@ checkGuest();
                 <button type="button" id="passwordView" class="form__password-view"></button>
                 <p class="form__password-error form__password-error_disabled">Password is required.</p>
             </div>
-            <input type="submit" id="registerButton" class="form__submit form__submit_disable" value="Register">
+            <input type="submit" id="registerButton" class="form__submit form__submit_disable" value="Register" disabled>
         </form>
     </main>
     <script src="register.js"></script>
 </body>
 <?php $_SESSION['validation'] = []; ?>
+
 </html>

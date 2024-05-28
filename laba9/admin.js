@@ -242,17 +242,17 @@ document.addEventListener("DOMContentLoaded", () => {
             });
 
             if (!response.ok) {
-                const result = await response.text(); 
-                throw new Error(result)   
+                const result = await response.text();
+                throw new Error(result)
             } else {
                 const result = await response.url;
                 console.log("Success:", result);
                 window.location.href = result;
             }
-            
+
         } catch (error) {
             // console.error("Error:", error.message);      
-            alert(error.message);  
+            alert(error.message);
         }
     }
 
@@ -260,13 +260,21 @@ document.addEventListener("DOMContentLoaded", () => {
         logout();
     }
 
-    function randomColor() {
-        return Math.floor(Math.random() * 255) + 1;
+    function randomColor()
+    {
+        const letterCode = avatarLetter.textContent.charCodeAt(0);
+        return colours[letterCode % 20];
     }
 
-    function avatarBackground() {       
-        avatarLetter.style.backgroundColor = 'rgb(' + `${randomColor()}, ${randomColor()}, ${randomColor()}` + ')';        
+    function avatarBackground() {
+        avatarLetter.style.backgroundColor = randomColor();
+        console.log(randomColor())
     }
+
+    const colours = [
+        "#1abc9c", "#2ecc71", "#3498db", "#9b59b6", "#34495e", "#16a085", "#27ae60", "#2980b9", "#8e44ad", "#2c3e50",
+        "#f1c40f", "#e67e22", "#e74c3c", "#ecf0f1", "#95a5a6", "#f39c12", "#d35400", "#c0392b", "#bdc3c7", "#7f8c8d"
+    ];
 
     const titleField = document.getElementById('titleField');
     const descriptionField = document.getElementById('descriptionField');
@@ -301,7 +309,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const publishErrorMessage = document.getElementById('publishErrorMessage');
 
     const logoutButton = document.getElementById('logoutButton');
-    const avatarLetter = document.getElementById('avatarLetter');    
+    const avatarLetter = document.getElementById('avatarLetter');
 
     //константы для подсветки ошибок   
     const titleError = document.getElementById('titleError');
@@ -364,7 +372,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         postPreview.cardDatePreview.textContent = postData.publishDate;
     }
-    
+
     avatarBackground()
     initEventListeners()
     rerenderPostPreview()

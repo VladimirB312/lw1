@@ -8,21 +8,21 @@ body {
     color: #2E2E2E;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;  
+    box-sizing: border-box;
     font: 400 16px/24px "Oxygen", sans-serif;
     background-color: #F7F7F7;
-  
+
 }
 
-textarea:focus, 
+textarea:focus,
 input[type="text"]:focus,
 input[type="date"]:focus {
     outline: none;
-    background: #F7F7F7; 
+    background: #F7F7F7;
 }
 
 .header-container {
-    background-color: #2E2E2E;    
+    background-color: #2E2E2E;
 }
 
 .menu {
@@ -40,7 +40,7 @@ input[type="date"]:focus {
 
 .menu__list {
     display: flex;
-    align-items: center;    
+    align-items: center;
 }
 
 .menu__profile {
@@ -64,6 +64,7 @@ input[type="date"]:focus {
     padding: 8px;
     border: none;
     background: none;
+    cursor: pointer;
 }
 
 .main-header {
@@ -88,10 +89,15 @@ input[type="date"]:focus {
     color: #FFFFFF;
     padding: 12px 24px;
     width: 100px;
-    height: 48px;      
+    height: 48px;
     background-color: #DD783F;
     border: none;
     border-radius: 3px;
+    cursor: pointer;
+}
+
+.main-header__publish:active {
+    scale: 0.87;
 }
 
 .main {
@@ -124,10 +130,10 @@ input[type="date"]:focus {
     background-size: 20px 20px;
     background-repeat: no-repeat;
     border-left: 2px solid #67C38C;
-    border-radius: 5px;    
+    border-radius: 5px;
 }
 
-.information {    
+.information {
     padding: 40px 40px 56px;
     background-color: #FFFFFF;
     margin-bottom: 16px;
@@ -160,14 +166,14 @@ input[type="date"]:focus {
 .post__hero-small-image-label {
     font: 12px/16px "Oxygen", sans-serif;
     color: #7A7A7A;
-    margin-bottom: 5px;  
+    margin-bottom: 5px;
 }
 
 .post__title-field-wrapper,
 .post__description-field-wrapper,
 .post__author-name-field-wrapper,
 .post__publish-date-field-wrapper {
-    margin-bottom: 40px;    
+    margin-bottom: 40px;
 }
 
 .post__title-field,
@@ -175,9 +181,9 @@ input[type="date"]:focus {
 .post__author-name-field,
 .post__publish-date-field {
     width: 100%;
-    font: 16px/24px "Oxygen", sans-serif; 
+    font: 16px/24px "Oxygen", sans-serif;
     border: none;
-    padding: 8px 4px;    
+    padding: 8px 4px;
     border-bottom: 1px solid #2E2E2E;
 }
 
@@ -188,11 +194,11 @@ input[type="date"]:focus {
 .content__text-area-error {
     margin-top: 5px;
     font: 12px/16px "Oxygen", sans-serif;
-    color:  #E86961;    
+    color: #E86961;
 }
 
 .post__author-name-field {
-    background: #FFFFFF;  
+    background: #FFFFFF;
 }
 
 .post__post__author-photo-label {
@@ -204,8 +210,8 @@ input[type="date"]:focus {
 }
 
 .post__author-photo-upload {
-    display: flex;  
-    align-items: center;  
+    display: flex;
+    align-items: center;
     margin-bottom: 40px;
 }
 
@@ -229,7 +235,7 @@ input[type="date"]:focus {
     font: 16px/24px "Oxygen", sans-serif;
     border: none;
     color: #E86961;
-    background: url(/images/trash.svg) no-repeat center;  
+    background: url(/images/trash.svg) no-repeat center;
     background-position: left;
     padding-left: 32px;
 }
@@ -264,39 +270,39 @@ input[type="date"]:focus {
 .upload-area__text,
 .small-upload-area__text {
     padding-left: 32px;
-    background: url(/images/camera.svg) left no-repeat;    
+    background: url(/images/camera.svg) left no-repeat;
 }
 
 .post__desc-image-format,
 .post__desc-small-image-format {
-    font: 12px/16px "Oxygen", sans-serif;  
+    font: 12px/16px "Oxygen", sans-serif;
     color: #999999;
 }
 
-.information__preview {  
-    width: 440px;  
-    position: relative;  
+.information__preview {
+    width: 440px;
+    position: relative;
 }
 
 .article-preview {
-    position: relative; 
+    position: relative;
     margin-bottom: 20px;
 }
 
-.article-preview:after{    
+.article-preview:after {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;    
+    height: 100%;
     background:
         linear-gradient(to right, rgba(255, 255, 255, 0) 80%, rgba(255, 255, 255, 1) 100%),
-        linear-gradient(to bottom, rgba(255, 255, 255, 0) 80%, rgba(255, 255, 255, 1) 100%); 
+        linear-gradient(to bottom, rgba(255, 255, 255, 0) 80%, rgba(255, 255, 255, 1) 100%);
 }
 
 .article-prview__caption {
-    font: 14px/20px "Oxygen", sans-serif;  
+    font: 14px/20px "Oxygen", sans-serif;
     color: #7A7A7A;
     margin-bottom: 16px;
 }
@@ -344,8 +350,8 @@ input[type="date"]:focus {
 
 .article__desc {
     font: 10.2px/12px "Oxygen", sans-serif;
-    text-align: center;    
-    color:  #2E2E2EA1;
+    text-align: center;
+    color: #2E2E2EA1;
     margin-bottom: 36px;
     overflow: hidden;
 }
@@ -353,26 +359,26 @@ input[type="date"]:focus {
 .article__image {
     width: 408px;
     height: 160px;
-    background-color: #F7F7F7;    
+    background-color: #F7F7F7;
     background-image: none;
     background-size: cover;
 }
 
 .card-preview__card {
-    position: relative; 
+    position: relative;
     border: 1px solid #EAEAEA;
 }
 
-.card-preview:after{    
+.card-preview:after {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;    
+    height: 100%;
     background:
         linear-gradient(to right, rgba(255, 255, 255, 0) 80%, rgba(255, 255, 255, 1) 100%),
-        linear-gradient(to bottom, rgba(255, 255, 255, 0) 80%, rgba(255, 255, 255, 1) 100%); 
+        linear-gradient(to bottom, rgba(255, 255, 255, 0) 80%, rgba(255, 255, 255, 1) 100%);
 }
 
 .card-prview__caption {
@@ -408,7 +414,7 @@ input[type="date"]:focus {
     color: #7A7A7A;
     padding: 0 13px;
     margin-bottom: 31px;
-    overflow: hidden;    
+    overflow: hidden;
 }
 
 .card__info {
@@ -419,10 +425,10 @@ input[type="date"]:focus {
 }
 
 .card__author-photo {
-    width:26px;
+    width: 26px;
     height: 26px;
     display: block;
-    border-radius: 50%; 
+    border-radius: 50%;
     margin-right: 10px;
     background-color: #F7F7F7;
     background-image: none;
@@ -470,10 +476,10 @@ input[type="date"]:focus {
 /* Блок поля фото автора после нажатия upload */
 
 .post__author-photo-upload-label-new {
-    background: url(/images/camera-black.svg) no-repeat center; 
+    background: url(/images/camera-black.svg) no-repeat center;
     background-position: left;
     padding-left: 32px;
-    margin-right: 16px;   
+    margin-right: 16px;
 }
 
 /*Для картинок hero и карточки*/
@@ -486,7 +492,7 @@ input[type="date"]:focus {
 
 .post__hero-small-image-loaded {
     display: block;
-    margin-bottom: 12px;    
+    margin-bottom: 12px;
 }
 
 .upload-area_loaded {
@@ -496,7 +502,7 @@ input[type="date"]:focus {
     background-color: inherit;
     border-radius: 0;
     border: none;
-    margin-bottom: 12px;    
+    margin-bottom: 12px;
 }
 
 .small-upload-area_loaded {
@@ -506,7 +512,7 @@ input[type="date"]:focus {
     background-color: inherit;
     border-radius: 0;
     border: none;
-    margin-bottom: 12px;     
+    margin-bottom: 12px;
 }
 
 .post__hero-image-remove-button {
@@ -524,7 +530,7 @@ input[type="date"]:focus {
     color: #E86961;
     font: 16px/24px "Oxygen", sans-serif;
     background: url(../images/trash.svg) left center no-repeat;
-    padding-left: 32px;       
+    padding-left: 32px;
 }
 
 .hidden {

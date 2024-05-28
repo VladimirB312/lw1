@@ -139,6 +139,15 @@ body {
     background-color: #DD783F;
     border: none;
     border-radius: 3px;
+    cursor: pointer;
+}
+
+.form__submit:active {
+    scale: 0.87;
+}
+
+.form__submit_disable {
+    opacity: 0.8;
 }
 
 /* Ошибки */
